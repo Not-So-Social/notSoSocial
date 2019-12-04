@@ -8,6 +8,7 @@ class TvShows extends Component {
         this.state = {
             apiData: [],
             showsFilteredByDay: [],
+            selectedDay = "";
         }
     }
 
@@ -27,6 +28,8 @@ class TvShows extends Component {
         }).then(() => (this.getShows(this.state.apiData, "Friday")))
     }
 
+    // based on the day currently saved in state, make an API call to retrieve the shows airing then.
+    // save the returned data to state as an array of show objects.
     getShows = (showList, dayOfWeek) => {
         let tempArray = [];
         for (let aShow in showList) {
@@ -40,6 +43,14 @@ class TvShows extends Component {
             showsFilteredByDay: tempArray,
         });
     }
+
+    // when user clicks on an event item, save its date to state
+    getDay = () => {
+        
+    }
+    
+
+
 
     render() {
         console.log('state: ', this.state);
