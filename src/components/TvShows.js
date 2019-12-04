@@ -8,6 +8,7 @@ class TvShows extends Component {
         this.state = {
             apiData: [],
             showsFilteredByDay: [],
+            showsFilteredByGenre: [],
         }
     }
 
@@ -19,7 +20,7 @@ class TvShows extends Component {
             "crossDomain": true,
             dataType: 'json',
         }).then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
 
             this.setState({
                 apiData: response.data
@@ -35,14 +36,33 @@ class TvShows extends Component {
                 tempArray.push(showList[aShow]);
             }
         }
-        console.log('only friday:',tempArray);
+        // console.log('only friday:', tempArray);
         this.setState({
             showsFilteredByDay: tempArray,
         });
     }
 
+    filteredShow = (showListFilterByDay, event) => {
+        let filteredArrayGenre = [];
+        let userGenre = event.target.value;
+        showListFilterByDay.map((data) => {
+            // console.log(data)
+            data.genres.forEach((genre) => {
+                if (genre === userGenre) {
+                    // console.log(genre)
+                    filteredArrayGenre.push(data)
+                    console.log(filteredArrayGenre)
+                }
+            })
+        })
+        // this.setState({
+        //     showsFilteredByGenre: filteredArrayGenre
+        // })
+    }
+
     render() {
-        console.log('state: ', this.state);
+        // this.filteredShow(this.state.showsFilteredByDay, "Action")
+        // console.log('state: ', this.state);
         return (
             <div>
                 <h1> Not So Social </h1>
@@ -58,7 +78,7 @@ class TvShows extends Component {
                         <option value="Sunday">Sunday</option>
                     </select>
 
-                    <select name="genres" id="genres">
+                    <select name="genres" id="genres" onChange={this.filteredShow(showsFilteredByDay, event)}>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Anime">Anime</option>
