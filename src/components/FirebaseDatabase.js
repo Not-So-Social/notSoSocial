@@ -1,22 +1,25 @@
 import React, { Component } from "react";
+// firebase
 import Firebase from "../util/config";
 import "firebase/database";
 
+// initiate firebase db
 const db = Firebase.database().ref("events");
 
 export default class FirebaseDatabase extends Component {
   constructor() {
     super();
     this.state = {
-      allEventsArray: [],
-      loading: false
+      allEventsArray: []
     };
   }
 
   componentDidMount() {
+    // getting all events from firebase db
     db.once("value", snapshot => {
+      // getting the value from snapshot and put it in an data constant
       const data = snapshot.val();
-      this.setState({ loading: true });
+      //
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           const event = data[key];
@@ -30,20 +33,15 @@ export default class FirebaseDatabase extends Component {
           });
         }
       }
-      this.setState({ loading: false });
     });
   }
 
-  handleOnEventClick = event => {
-    console.log(event)
-    this.props.retrieveEventClicked(event)
-  };
-
   renderEvents = () => {
+    // map through the all events array and render elements, for each event clicked call the retrieveEventClicked props and pass the eventClicked obj in so App.js will make use of it
     return this.state.allEventsArray.map(eventClicked => {
       return (
         <li className="singleEvent" key={eventClicked.name}>
-          <button onClick={() => this.handleOnEventClick(eventClicked)}>
+          <button onClick={() => this.props.retrieveEventClicked(eventClicked)}>
             <h2>{eventClicked.name}</h2>
             <p>type: {eventClicked.type}</p>
             <p>party size: {eventClicked.partySize}</p>
@@ -56,7 +54,8 @@ export default class FirebaseDatabase extends Component {
   render() {
     return (
       <ul className="listOfEvents">
-        {!this.state.loading && this.renderEvents()}
+        {/* only run renderEvents if allEventsArray isn't empty*/}
+        {this.state.allEventsArray && this.renderEvents()}
       </ul>
     );
   }
