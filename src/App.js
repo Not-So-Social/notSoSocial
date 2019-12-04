@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles/style.scss";
 import TvShows from "./components/TvShows";
 import FirebaseDatabase from "./components/FirebaseDatabase";
+import DisplayResultDashboard from "./components/DisplayResultDashboard";
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,9 @@ class App extends Component {
       <div>
         <TvShows />
         <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
+        {this.state.eventClicked && (
+          <DisplayResultDashboard eventClicked={this.state.eventClicked} />
+        )}
       </div>
     );
   }
