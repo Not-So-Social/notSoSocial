@@ -8,7 +8,7 @@ class TvShows extends Component {
         this.state = {
             apiData: [],
             showsFilteredByDay: [],
-            selectedDay = "";
+            selectedDay: "Monday",
         }
     }
 
@@ -25,7 +25,7 @@ class TvShows extends Component {
             this.setState({
                 apiData: response.data
             })
-        }).then(() => (this.getShows(this.state.apiData, "Friday")))
+        }).then(() => (this.getShows(this.state.apiData, this.state.selectedDay)))
     }
 
     // based on the day currently saved in state, make an API call to retrieve the shows airing then.
@@ -35,22 +35,27 @@ class TvShows extends Component {
         for (let aShow in showList) {
             let broadCastDay = showList[aShow].schedule.days[0];
             if (broadCastDay === dayOfWeek) {
+                console.log('broadcast day:', broadCastDay)
                 tempArray.push(showList[aShow]);
             }
         }
-        console.log('only friday:',tempArray);
         this.setState({
             showsFilteredByDay: tempArray,
         });
     }
 
-    // when user clicks on an event item, save its date to state
-    getDay = () => {
-        
+    // when user selects a day, save the day to state
+    getDay = (event) => {
+        event.preventDefault();
+        let newDay = event.target.value;
+        console.log('day:', newDay)
+        this.setState({
+            selectedDay: newDay,
+        })
+
+        this.getShows(this.state.apiData, newDay);
     }
     
-
-
 
     render() {
         console.log('state: ', this.state);
@@ -59,7 +64,7 @@ class TvShows extends Component {
             <h1> Not So Social </h1>
 
             <div className="dropdownDays">
-                <select name="days" id="days">
+                <select name="days" id="days" onChange={this.getDay}>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
