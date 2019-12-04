@@ -34,20 +34,30 @@ export default class FirebaseDatabase extends Component {
     });
   }
 
+  handleOnEventClick = event => {
+    console.log(event)
+    this.props.retrieveEventClicked(event)
+  };
+
   renderEvents = () => {
-    return this.state.allEventsArray.map(event => {
-      console.log(event);
+    return this.state.allEventsArray.map(eventClicked => {
       return (
-        <li key={event.name}>
-          <h2>{event.name}</h2>
-          <p>type: {event.type}</p>
-          <p>party size: {event.partySize}</p>
+        <li className="singleEvent" key={eventClicked.name}>
+          <button onClick={() => this.handleOnEventClick(eventClicked)}>
+            <h2>{eventClicked.name}</h2>
+            <p>type: {eventClicked.type}</p>
+            <p>party size: {eventClicked.partySize}</p>
+          </button>
         </li>
       );
     });
   };
 
   render() {
-    return <ul>{!this.state.loading && this.renderEvents()}</ul>;
+    return (
+      <ul className="listOfEvents">
+        {!this.state.loading && this.renderEvents()}
+      </ul>
+    );
   }
 }
