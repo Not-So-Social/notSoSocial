@@ -9,6 +9,8 @@ class TvShows extends Component {
             apiData: [],
             showsFilteredByDay: [],
             showsFilteredByGenre: [],
+            selectedDay: "Monday",
+            selectedGenre: "Action",
         }
     }
 
@@ -25,14 +27,17 @@ class TvShows extends Component {
             this.setState({
                 apiData: response.data
             })
-        }).then(() => (this.getShows(this.state.apiData, "Friday")))
+        }).then(() => (this.getShows(this.state.apiData, this.state.selectedDay)))
     }
 
+    // based on the day currently saved in state, make an API call to retrieve the shows airing then.
+    // save the returned data to state as an array of show objects.
     getShows = (showList, dayOfWeek) => {
         let tempArray = [];
         for (let aShow in showList) {
             let broadCastDay = showList[aShow].schedule.days[0];
             if (broadCastDay === dayOfWeek) {
+                console.log('broadcast day:', broadCastDay)
                 tempArray.push(showList[aShow]);
             }
         }
@@ -42,10 +47,11 @@ class TvShows extends Component {
         });
     }
 
-    filteredShow = (showListFilterByDay, event) => {
+    // filter show once the user inputs the genre
+    filteredShow = (event) => {
         let filteredArrayGenre = [];
         let userGenre = event.target.value;
-        showListFilterByDay.map((data) => {
+        this.state.showsFilteredByDay.map((data) => {
             // console.log(data)
             data.genres.forEach((genre) => {
                 if (genre === userGenre) {
@@ -55,20 +61,32 @@ class TvShows extends Component {
                 }
             })
         })
-        // this.setState({
-        //     showsFilteredByGenre: filteredArrayGenre
-        // })
+        this.setState({
+            showsFilteredByGenre: filteredArrayGenre
+        })
+    }
+    // when user selects a day, save the day to state
+
+    getDay = (event) => {
+        event.preventDefault();
+        let newDay = event.target.value;
+        console.log('day:', newDay)
+        this.setState({
+            selectedDay: newDay,
+        })
+
+        this.getShows(this.state.apiData, newDay);
     }
 
+
     render() {
-        // this.filteredShow(this.state.showsFilteredByDay, "Action")
         // console.log('state: ', this.state);
         return (
             <div>
                 <h1> Not So Social </h1>
 
                 <div className="dropdownDays">
-                    <select name="days" id="days">
+                    <select name="days" id="days" onChange={this.getDay}>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>
@@ -78,7 +96,7 @@ class TvShows extends Component {
                         <option value="Sunday">Sunday</option>
                     </select>
 
-                    <select name="genres" id="genres" onChange={this.filteredShow(showsFilteredByDay, event)}>
+                    <select name="genres" id="genres" onChange={this.filteredShow}>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Anime">Anime</option>
@@ -93,7 +111,7 @@ class TvShows extends Component {
                     </select>
 
                 </div>
-            </div>
+            </div >
         )
     }
 }

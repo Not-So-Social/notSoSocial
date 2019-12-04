@@ -16,16 +16,16 @@
 
 // in App.js:
 
-componentDidMount()
+componentDidMount() ✅
 // firebase data is retrieved and saved to event objects in state
 
 displaySocialEvents()
 // renders event objects in state to the page as a list of clickable items
 
-getDay()
+getDay() 
 // when user clicks on an event item, save its date to state
 
-getShows()
+getShows() ✅
 // based on the day currently saved in state, make an API call
 // to retrieve the shows airing then.
 // save the returned data to state as an array of show objects
