@@ -6,14 +6,27 @@ import FirebaseDatabase from "./components/FirebaseDatabase";
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      eventClicked: null
+    };
   }
+
+  retrieveEventClicked = event => {
+    this.setState(
+      {
+        eventClicked: event
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
 
   render() {
     return (
       <div>
         <TvShows />
-        <FirebaseDatabase />
+        <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
       </div>
     );
   }
