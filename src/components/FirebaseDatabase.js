@@ -19,7 +19,7 @@ export default class FirebaseDatabase extends Component {
     db.once("value", snapshot => {
       // getting the value from snapshot and put it in an data constant
       const data = snapshot.val();
-      // start the loading
+      //
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           const event = data[key];
@@ -37,6 +37,7 @@ export default class FirebaseDatabase extends Component {
   }
 
   renderEvents = () => {
+    // map through the all events array and render elements, for each event clicked call the retrieveEventClicked props and pass the eventClicked obj in so App.js will make use of it
     return this.state.allEventsArray.map(eventClicked => {
       return (
         <li className="singleEvent" key={eventClicked.name}>
@@ -53,6 +54,7 @@ export default class FirebaseDatabase extends Component {
   render() {
     return (
       <ul className="listOfEvents">
+        {/* only run renderEvents if allEventsArray isn't empty*/}
         {this.state.allEventsArray && this.renderEvents()}
       </ul>
     );
