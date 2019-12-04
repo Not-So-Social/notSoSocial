@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class TvShows extends Component {
     constructor() {
         super();
         this.state = {
-            apiData: []
+            apiData: [],
+            showsFilteredByDay: [],
         }
     }
 
@@ -22,10 +24,25 @@ class TvShows extends Component {
             this.setState({
                 apiData: response.data
             })
-        })
+        }).then(() => (this.getShows(this.state.apiData, "Friday")))
+    }
+
+    getShows = (showList, dayOfWeek) => {
+        let tempArray = [];
+        for (let aShow in showList) {
+            let broadCastDay = showList[aShow].schedule.days[0];
+            if (broadCastDay === dayOfWeek) {
+                tempArray.push(showList[aShow]);
+            }
+        }
+        console.log('only friday:',tempArray);
+        this.setState({
+            showsFilteredByDay: tempArray,
+        });
     }
 
     render() {
+        console.log('state: ', this.state);
         return (
             <h1> Not So Social </h1>
         )
