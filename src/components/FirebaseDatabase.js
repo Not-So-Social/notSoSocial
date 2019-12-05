@@ -19,7 +19,8 @@ export default class FirebaseDatabase extends Component {
     db.on("value", snapshot => {
       // getting the value from snapshot and put it in an data constant
       const data = snapshot.val();
-      //
+      let newStateWithEvents = []
+      
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           const event = data[key];
@@ -28,11 +29,12 @@ export default class FirebaseDatabase extends Component {
             type: event.type,
             partySize: event.partySize
           };
-          this.setState({
-            allEventsArray: [...this.state.allEventsArray, eventObj]
-          });
+          newStateWithEvents.push(eventObj)
         }
       }
+      this.setState({
+        allEventsArray: newStateWithEvents
+      });
     });
   }
 
@@ -50,7 +52,6 @@ export default class FirebaseDatabase extends Component {
       );
     });
   };
-
 
   render() {
     return (
