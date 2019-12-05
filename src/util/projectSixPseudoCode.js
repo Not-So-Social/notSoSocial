@@ -34,7 +34,7 @@ displayShows()
 // display the show objects saved in state to the page as a list
 //  that includes a 'filter by genre' option
 
-filterShows()
+filterShows() ✅
 // when the filter genre option changes, return only the shows 
 // that match the filtered genre
 
