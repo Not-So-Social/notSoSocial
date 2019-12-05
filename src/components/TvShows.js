@@ -185,8 +185,11 @@ class TvShows extends Component {
                     </select>
 
                 </div>
-
-                <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows()}</ul>
+                <div className="displaySection">
+                    <div className="displayInner">
+                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows()}</ul>
+                    </div>
+                </div>
 
 
             </div >
