@@ -34,14 +34,15 @@ class TvShows extends Component {
     // save the returned data to state as an array of show objects.
     getShows = (showList, dayOfWeek) => {
         let tempArray = [];
+
         for (let aShow in showList) {
-            let broadCastDay = showList[aShow].schedule.days[0];
-            if (broadCastDay === dayOfWeek) {
-                console.log('broadcast day:', broadCastDay)
+            let broadCastDay = showList[aShow].schedule.days;
+
+            if ( broadCastDay.includes(dayOfWeek) ) {
                 tempArray.push(showList[aShow]);
             }
         }
-        // console.log('only friday:', tempArray);
+        
         this.setState({
             showsFilteredByDay: tempArray,
         });
@@ -65,8 +66,8 @@ class TvShows extends Component {
             showsFilteredByGenre: filteredArrayGenre
         })
     }
-    // when user selects a day, save the day to state
 
+    // when user selects a day, save the day to state
     getDay = (event) => {
         event.preventDefault();
         let newDay = event.target.value;
