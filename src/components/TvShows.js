@@ -135,6 +135,13 @@ class TvShows extends Component {
           });
         }
       };
+
+    // this function parses through the summary html and removes html tags from the string.
+    removeTags = (rawString) => {
+        
+    }
+    
+    
     // filter show once the user inputs the genre
     filteredShow = (event) => {
         let filteredArrayGenre = [];
