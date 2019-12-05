@@ -33,3 +33,17 @@ body {
         }
     }
 }
+
+header {
+    background: $primaryBackgroundColor;
+    height: 100vh;
+    color: $primaryColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+
+    h1 {
+        text-shadow: 5px 5px $secondaryColor;
+    }
+}

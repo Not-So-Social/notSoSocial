@@ -164,7 +164,9 @@ class TvShows extends Component {
         // console.log('state: ', this.state);
         return (
             <div>
-                <h1> Not So Social </h1>
+                <header>
+                    <h1> Not So Social </h1>
+                </header>
 
                 <div className="dropdownDays">
                     <select name="days" id="days" onChange={this.getDay}>
