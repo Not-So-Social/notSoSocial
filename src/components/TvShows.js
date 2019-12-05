@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Swal from 'sweetalert2'
 
 class TvShows extends Component {
     constructor() {
@@ -27,7 +27,16 @@ class TvShows extends Component {
             this.setState({
                 apiData: response.data
             })
-        }).then(() => (this.getShows(this.state.apiData, this.state.selectedDay)))
+        }).then(() => (
+            this.getShows(this.state.apiData, this.state.selectedDay)
+        )).catch(() => {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        })
     }
 
     // based on the day currently saved in state, make an API call to retrieve the shows airing then.
@@ -38,33 +47,14 @@ class TvShows extends Component {
         for (let aShow in showList) {
             let broadCastDay = showList[aShow].schedule.days;
 
-            if ( broadCastDay.includes(dayOfWeek) ) {
+            if (broadCastDay.includes(dayOfWeek)) {
                 tempArray.push(showList[aShow]);
             }
         }
-        
+
         this.setState({
             showsFilteredByDay: tempArray,
         });
-    }
-
-    // filter show once the user inputs the genre
-    filteredShow = (event) => {
-        let filteredArrayGenre = [];
-        let userGenre = event.target.value;
-        this.state.showsFilteredByDay.map((data) => {
-            // console.log(data)
-            data.genres.forEach((genre) => {
-                if (genre === userGenre) {
-                    // console.log(genre)
-                    filteredArrayGenre.push(data)
-                    // console.log(filteredArrayGenre)
-                }
-            })
-        })
-        this.setState({
-            showsFilteredByGenre: filteredArrayGenre
-        })
     }
 
     // when user selects a day, save the day to state
@@ -79,69 +69,102 @@ class TvShows extends Component {
         this.getShows(this.state.apiData, newDay);
     }
 
+    // // filter show once the user inputs the genre
+    // filteredShow = (event) => {
+    //     let filteredArrayGenre = [];
+    //     let userGenre = event.target.value;
+    //     this.state.showsFilteredByDay.map((data) => {
+    //         // console.log(filteredArrayGenre)
+    //         return (
+    //             data.genres.forEach((genre) => {
+    //                 if (genre === userGenre) {
+    //                     filteredArrayGenre.push(data)
+    //                     // console.log(filteredArrayGenre)
+    //                 }
+    //                 // } else if (filteredArrayGenre === []) {
+    //                 //     console.log(filteredArrayGenre)
+    //                 //     Swal.fire({
+    //                 //         title: 'Error!',
+    //                 //         text: 'Something went wrong!',
+    //                 //         icon: 'error',
+    //                 //         confirmButtonText: 'Cool'
+    //                 //     })
+    //                 // }
+    //             })
+    //         )
+    //     })
+
+
+    //     this.setState({
+    //         showsFilteredByGenre: filteredArrayGenre
+    //     })
+    // }
+
+
+
     renderAllFilteredTvShows = () => {
         // if the first item in showsFilteredByGenre isn't null, we can start the function
         if (this.state.showsFilteredByGenre[0]) {
             // map the array of objects
-          return this.state.showsFilteredByGenre.map(show => {
-            // for each obj in the arr, filter out only the info we want:
-            // TV show title
-            // tv show id for key
-            // Picture src
-            // Link to IMDB page
-            // genres from array to string
-            // Description of show in html
-            // Network name string
-            // Scheduled time to play
-            let newTvShowObjectToDisplay = {
-              title: show.name,
-              id: show.id,
-              image: show.image.original,
-              imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
-              genres: show.genres.join(" "),
-              summaryHtml: show.summary,
-              network: show.network.name,
-              time: show.schedule.time
-            };
-            
-            // destructuring the newTvShowObjectToDisplay obj
-            const {
-              title,
-              id,
-              image,
-              imdb,
-              genres,
-              summaryHtml,
-              network,
-              time
-            } = newTvShowObjectToDisplay;
+            return this.state.showsFilteredByGenre.map(show => {
+                // for each obj in the arr, filter out only the info we want:
+                // TV show title
+                // tv show id for key
+                // Picture src
+                // Link to IMDB page
+                // genres from array to string
+                // Description of show in html
+                // Network name string
+                // Scheduled time to play
+                let newTvShowObjectToDisplay = {
+                    title: show.name,
+                    id: show.id,
+                    image: show.image.original,
+                    imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
+                    genres: show.genres.join(" "),
+                    summaryHtml: show.summary,
+                    network: show.network.name,
+                    time: show.schedule.time
+                };
 
-            // rendering the li
-            return (
-              <li key={id}>
-                <button
-                  onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
-                >
-                <h2>{title}</h2>
-                <img src={image} alt="sorted tv show results" />
-                <a href={imdb}>Go to Imdb</a>
-                <p>Genres: {genres}</p>
-                <p>Network Name: {network}</p>
-                <p>Time: {time}</p>
-                {/* <div>{summaryHtml}</div> */}
-                </button>
-              </li>
-            );
-          });
+                // destructuring the newTvShowObjectToDisplay obj
+                const {
+                    title,
+                    id,
+                    image,
+                    imdb,
+                    genres,
+                    summaryHtml,
+                    network,
+                    time
+                } = newTvShowObjectToDisplay;
+
+                // rendering the li
+                return (
+                    <li key={id}>
+                        <button
+                            onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
+                        >
+                            <h2>{title}</h2>
+                            <img src={image} alt="sorted tv show results" />
+                            <a href={imdb}>Go to Imdb</a>
+                            <p>Genres: {genres}</p>
+                            <p>Network Name: {network}</p>
+                            <p>Time: {time}</p>
+                            {/* <div>{summaryHtml}</div> */}
+                        </button>
+                    </li>
+                );
+            });
         }
-      };
+    };
 
     // this function parses through the summary html and removes html tags from the string.
     removeTags = (rawString) => {
-        
+
     }
-    
-    
+
+
     // filter show once the user inputs the genre
     filteredShow = (event) => {
         let filteredArrayGenre = [];
@@ -151,10 +174,20 @@ class TvShows extends Component {
                 data.genres.forEach((genre) => {
                     if (genre === userGenre) {
                         filteredArrayGenre.push(data)
-                        console.log(filteredArrayGenre)
+                        // console.log(filteredArrayGenre)
                     }
-                }))
+                })
+            )
         })
+        if (!filteredArrayGenre[0]) {
+            console.log(filteredArrayGenre, "try")
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
         this.setState({
             showsFilteredByGenre: filteredArrayGenre
         })
@@ -184,10 +217,10 @@ class TvShows extends Component {
                         <option value="Adventure">Adventure</option>
                         <option value="Anime">Anime</option>
                         <option value="Comedy">Comedy</option>
-                        <option value="Drama">Drama</option>
                         <option value="Crime">Crime</option>
+                        <option value="Drama">Drama</option>
                         <option value="Family">Family</option>
-                        <option value="Myster">Mystery</option>
+                        <option value="Mystery">Mystery</option>
                         <option value="Romance">Romance</option>
                         <option value="Science-Fiction">Science-Fiction</option>
                         <option value="Thriller">Thriller</option>
