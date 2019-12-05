@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function DisplayResultDashboard(props) {
+  // destructuring both props from app.js
   const {name, type, partySize} = props.eventClicked;
   const {title, image, imdb, genres, network, time} = props.tvShowClicked;
 
@@ -20,7 +21,7 @@ export default function DisplayResultDashboard(props) {
         <a href={imdb}>Go to Imdb</a>
         <p>Genres: {genres}</p>
         <p>Network Name: {network}</p>
-      <p>Time: {time}</p>
+        <p>Time: {time}</p>
       </div>
     </section>
   );
