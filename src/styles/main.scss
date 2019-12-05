@@ -6,3 +6,30 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
 }
+
+// Display section tv shows
+
+.displaySection {
+    width: 100%;
+
+    .displayInner {
+        // width: 7000px;
+        overflow: overlay;
+        max-width:100%;
+        height: 100vh;
+
+        .displayAllFilteredTvShows {
+            display: flex;
+
+            li {
+                padding: 5%;
+
+                button {
+                    width: 400px;
+                    margin: 20px;
+                }
+            }
+
+        }
+    }
+}
