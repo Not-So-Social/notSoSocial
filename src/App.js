@@ -8,7 +8,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      eventClicked: null
+      eventClicked: null,
+      tvShowClicked: null
     };
   }
 
@@ -23,13 +24,24 @@ class App extends Component {
     );
   };
 
+  retrieveTvShowClicked = (event) => {
+    this.setState(
+      {
+        tvShowClicked: event
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  }
+
   render() {
     return (
       <div>
-        <TvShows />
+        <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
         <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
-        {this.state.eventClicked && (
-          <DisplayResultDashboard eventClicked={this.state.eventClicked} />
+        {this.state.eventClicked && this.state.tvShowClicked && (
+          <DisplayResultDashboard eventClicked={this.state.eventClicked} tvShowClicked={this.state.tvShowClicked} />
         )}
       </div>
     );
