@@ -58,7 +58,7 @@ class TvShows extends Component {
                 if (genre === userGenre) {
                     // console.log(genre)
                     filteredArrayGenre.push(data)
-                    console.log(filteredArrayGenre)
+                    // console.log(filteredArrayGenre)
                 }
             })
         })
@@ -79,6 +79,47 @@ class TvShows extends Component {
         this.getShows(this.state.apiData, newDay);
     }
 
+    renderAllFilteredTvShows = () => {
+        if (this.state.showsFilteredByGenre[0]) {
+          return this.state.showsFilteredByGenre.map(show => {
+            // TV show title
+            // Picture
+            // Description of show
+            // Link to IMDB page
+            let newTvShowObjectToDisplay = {
+              title: show.name,
+              id: show.id,
+              image: show.image.original,
+              imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
+              genres: show.genres.join(" "),
+              summaryHtml: show.summary
+            };
+            
+            const {
+              title,
+              id,
+              image,
+              imdb,
+              genres,
+              summaryHtml
+            } = newTvShowObjectToDisplay;
+
+            return (
+              <li key={id}>
+                <button
+                  onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
+                >
+                <h2>{title}</h2>
+                <img src={image} alt="sorted tv show results" />
+                <a href={imdb}>Go to Imdb</a>
+                <p>Genres: {genres}</p>
+                <div>{summaryHtml}</div>
+                </button>
+              </li>
+            );
+          });
+        }
+      };
     // filter show once the user inputs the genre
     filteredShow = (event) => {
         let filteredArrayGenre = [];
@@ -129,6 +170,10 @@ class TvShows extends Component {
                     </select>
 
                 </div>
+
+                <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows()}</ul>
+
+
             </div >
         )
     }

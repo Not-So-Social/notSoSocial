@@ -13,6 +13,9 @@ export default function DisplayResultDashboard(props) {
       <div className="tvShowResults">
         <h2>What you are doing instead</h2>
         <p>Tv Shows here</p>
+        <h2>{props.tvShowClicked.title}</h2>
+        <a href={props.tvShowClicked.imdb}>Go to Imdb</a>
+        <p>Genres: {props.tvShowClicked.genres}</p>
       </div>
     </section>
   );
