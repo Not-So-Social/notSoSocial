@@ -83,16 +83,22 @@ class TvShows extends Component {
         if (this.state.showsFilteredByGenre[0]) {
           return this.state.showsFilteredByGenre.map(show => {
             // TV show title
-            // Picture
-            // Description of show
+            // tv show id for key
+            // Picture src
             // Link to IMDB page
+            // genres from array to string
+            // Description of show in html
+            // Network name string
+            // Scheduled time to play
             let newTvShowObjectToDisplay = {
               title: show.name,
               id: show.id,
               image: show.image.original,
               imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
               genres: show.genres.join(" "),
-              summaryHtml: show.summary
+              summaryHtml: show.summary,
+              network: show.network.name,
+              time: show.schedule.time
             };
             
             const {
@@ -101,7 +107,9 @@ class TvShows extends Component {
               image,
               imdb,
               genres,
-              summaryHtml
+              summaryHtml,
+              network,
+              time
             } = newTvShowObjectToDisplay;
 
             return (
@@ -113,6 +121,8 @@ class TvShows extends Component {
                 <img src={image} alt="sorted tv show results" />
                 <a href={imdb}>Go to Imdb</a>
                 <p>Genres: {genres}</p>
+                <p>Network Name: {network}</p>
+                <p>Time: {time}</p>
                 <div>{summaryHtml}</div>
                 </button>
               </li>
