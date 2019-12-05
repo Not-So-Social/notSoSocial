@@ -51,6 +51,7 @@ export default class FirebaseDatabase extends Component {
     });
   };
 
+
   render() {
     return (
       <ul className="listOfEvents">

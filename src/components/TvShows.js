@@ -34,14 +34,15 @@ class TvShows extends Component {
     // save the returned data to state as an array of show objects.
     getShows = (showList, dayOfWeek) => {
         let tempArray = [];
+
         for (let aShow in showList) {
-            let broadCastDay = showList[aShow].schedule.days[0];
-            if (broadCastDay === dayOfWeek) {
-                console.log('broadcast day:', broadCastDay)
+            let broadCastDay = showList[aShow].schedule.days;
+
+            if ( broadCastDay.includes(dayOfWeek) ) {
                 tempArray.push(showList[aShow]);
             }
         }
-        // console.log('only friday:', tempArray);
+        
         this.setState({
             showsFilteredByDay: tempArray,
         });
@@ -57,7 +58,7 @@ class TvShows extends Component {
                 if (genre === userGenre) {
                     // console.log(genre)
                     filteredArrayGenre.push(data)
-                    console.log(filteredArrayGenre)
+                    // console.log(filteredArrayGenre)
                 }
             })
         })
@@ -65,8 +66,8 @@ class TvShows extends Component {
             showsFilteredByGenre: filteredArrayGenre
         })
     }
-    // when user selects a day, save the day to state
 
+    // when user selects a day, save the day to state
     getDay = (event) => {
         event.preventDefault();
         let newDay = event.target.value;
@@ -78,6 +79,64 @@ class TvShows extends Component {
         this.getShows(this.state.apiData, newDay);
     }
 
+    renderAllFilteredTvShows = () => {
+        if (this.state.showsFilteredByGenre[0]) {
+          return this.state.showsFilteredByGenre.map(show => {
+            // TV show title
+            // Picture
+            // Description of show
+            // Link to IMDB page
+            let newTvShowObjectToDisplay = {
+              title: show.name,
+              id: show.id,
+              image: show.image.original,
+              imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
+              genres: show.genres.join(" "),
+              summaryHtml: show.summary
+            };
+            
+            const {
+              title,
+              id,
+              image,
+              imdb,
+              genres,
+              summaryHtml
+            } = newTvShowObjectToDisplay;
+
+            return (
+              <li key={id}>
+                <button
+                  onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
+                >
+                <h2>{title}</h2>
+                <img src={image} alt="sorted tv show results" />
+                <a href={imdb}>Go to Imdb</a>
+                <p>Genres: {genres}</p>
+                <div>{summaryHtml}</div>
+                </button>
+              </li>
+            );
+          });
+        }
+      };
+    // filter show once the user inputs the genre
+    filteredShow = (event) => {
+        let filteredArrayGenre = [];
+        let userGenre = event.target.value;
+        this.state.showsFilteredByDay.map((data) => {
+            return (
+                data.genres.forEach((genre) => {
+                    if (genre === userGenre) {
+                        filteredArrayGenre.push(data)
+                        console.log(filteredArrayGenre)
+                    }
+                }))
+        })
+        this.setState({
+            showsFilteredByGenre: filteredArrayGenre
+        })
+    }
 
     render() {
         // console.log('state: ', this.state);
@@ -111,6 +170,10 @@ class TvShows extends Component {
                     </select>
 
                 </div>
+
+                <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows()}</ul>
+
+
             </div >
         )
     }

@@ -22,7 +22,7 @@ componentDidMount() ✅
 displaySocialEvents()
 // renders event objects in state to the page as a list of clickable items
 
-getDay() 
+getDay() ✅
 // when user clicks on an event item, save its date to state
 
 getShows() ✅
