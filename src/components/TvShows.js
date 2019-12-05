@@ -128,7 +128,7 @@ class TvShows extends Component {
                 <p>Genres: {genres}</p>
                 <p>Network Name: {network}</p>
                 <p>Time: {time}</p>
-                <div>{summaryHtml}</div>
+                {/* <div>{summaryHtml}</div> */}
                 </button>
               </li>
             );
