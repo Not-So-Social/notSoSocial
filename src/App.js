@@ -3,7 +3,7 @@ import "./styles/style.scss";
 import TvShows from "./components/TvShows";
 import FirebaseDatabase from "./components/FirebaseDatabase";
 import DisplayResultDashboard from "./components/DisplayResultDashboard";
-
+import CreateNewEvent from './components/CreateNewEvent'
 class App extends Component {
   constructor() {
     super();
@@ -39,6 +39,7 @@ class App extends Component {
     return (
       <div>
         <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
+        <CreateNewEvent />
         <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
         {this.state.eventClicked && this.state.tvShowClicked && (
           <DisplayResultDashboard eventClicked={this.state.eventClicked} tvShowClicked={this.state.tvShowClicked} />
