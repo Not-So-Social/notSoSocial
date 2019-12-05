@@ -9,9 +9,17 @@ removeTags = (rawString) => {
     inProcess = false;
 
     parseArray.forEach( (item) => {
-        if ( item === "<" ) { inProcess = true; }; 
-        if ( !inProcess ) { newArray.push(item); };
-        if (item === ">") { inProcess = false; }; 
+        if ( item === "<" ) { 
+            inProcess = true; 
+        }; 
+
+        if ( !inProcess ) { 
+            newArray.push(item); 
+        };
+
+        if (item === ">") {
+             inProcess = false; 
+        }; 
     });
 
     newArray.forEach ( (item) => {
