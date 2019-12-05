@@ -47,24 +47,6 @@ class TvShows extends Component {
         });
     }
 
-    // filter show once the user inputs the genre
-    filteredShow = (event) => {
-        let filteredArrayGenre = [];
-        let userGenre = event.target.value;
-        this.state.showsFilteredByDay.map((data) => {
-            // console.log(data)
-            data.genres.forEach((genre) => {
-                if (genre === userGenre) {
-                    // console.log(genre)
-                    filteredArrayGenre.push(data)
-                    console.log(filteredArrayGenre)
-                }
-            })
-        })
-        this.setState({
-            showsFilteredByGenre: filteredArrayGenre
-        })
-    }
     // when user selects a day, save the day to state
 
     getDay = (event) => {
@@ -78,6 +60,23 @@ class TvShows extends Component {
         this.getShows(this.state.apiData, newDay);
     }
 
+    // filter show once the user inputs the genre
+    filteredShow = (event) => {
+        let filteredArrayGenre = [];
+        let userGenre = event.target.value;
+        this.state.showsFilteredByDay.map((data) => {
+            return (
+                data.genres.forEach((genre) => {
+                    if (genre === userGenre) {
+                        filteredArrayGenre.push(data)
+                        console.log(filteredArrayGenre)
+                    }
+                }))
+        })
+        this.setState({
+            showsFilteredByGenre: filteredArrayGenre
+        })
+    }
 
     render() {
         // console.log('state: ', this.state);
