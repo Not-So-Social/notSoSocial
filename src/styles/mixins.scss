@@ -1,0 +1,23 @@
+$primaryColor: #ded6ed ;
+$secondaryColor: #df7980 ;
+$primaryBackgroundColor: #3a1879;
+
+@mixin forPhone {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin forTablet {
+  @media (max-width: 900px) { @content; }
+}
+
+@mixin forSmallDesktop {
+  @media (max-width: 1200px) { @content; }
+}
+
+@mixin forDesktop {
+  @media (max-width: 1600px) { @content; }
+}
+
+@mixin forBigDesktop {
+  @media (min-width: 1601px) { @content; }
+}
