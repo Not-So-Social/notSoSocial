@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 class TvShows extends Component {
     constructor() {
@@ -150,6 +151,7 @@ class TvShows extends Component {
                             <p>Genres: {genres}</p>
                             <p>Network Name: {network}</p>
                             <p>Time: {time}</p>
+                            <Link to={`/tv/${id}`}>Link here</Link>
                             {/* <div>{summaryHtml}</div> */}
                         </button>
                     </li>
