@@ -1,0 +1,27 @@
+.listOfEvents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    background: linear-gradient(-155deg, $primaryColor 20%, $secondaryColor);
+
+    padding: 80px 40px;
+
+    .singleEvent {
+        width: 30%;
+        margin: 50px 10%;
+
+        box-shadow: $secondaryColor 15px 15px;
+
+        text-align: center;
+
+        button {
+            width: 100%;
+            min-height: 280px;
+
+            background: $primaryBackgroundColor;
+            border: none;
+            color: $primaryColor;
+        }
+    }
+}
