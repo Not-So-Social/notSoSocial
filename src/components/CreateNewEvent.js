@@ -41,12 +41,12 @@ export default class CreateNewEvent extends Component {
   render() {
     return (
       <div className="wrapper createNewEvent" >
-        <h2>Event Creation</h2>
+        <h2>Didn't find an event for you? Create a new event here!</h2>
         <form onSubmit={this.handleOnSubmit}>
           <label htmlFor="eventName">please enter event name</label>
           <input type="text" onChange={this.handelOnChange} id="eventName" placeholder="event name" />
           <label htmlFor="partySize">please enter party size</label>
-          <input type="number" onChange={this.handelOnChange} id="partySize" placeholder="party size" />
+          <input type="number" min="1" onChange={this.handelOnChange} id="partySize" placeholder="party size" />
           <label htmlFor="type">please enter type of event</label>
           <input type="text" onChange={this.handelOnChange} id="type" placeholder="type of event" />
           <input type="submit" value="Submit" />

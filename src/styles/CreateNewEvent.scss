@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 50vh;
+  margin-top: 50px;
 
   h2 {
     text-align: center;
@@ -15,8 +16,32 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid grey;
+  background: $primaryColor;
+  border: 2px solid $primaryBackgroundColor;
   padding: 50px 30px;
+  color: $primaryBackgroundColor;
+  border-radius: 15px;
+  box-shadow: 5px 5px $primaryBackgroundColor;
+
+
+  input {
+    border: none;
+    background: $primaryBackgroundColor;
+    border-radius: 30px;
+    padding: 10px;
+    &::placeholder {
+      color: white;
+    }
+
+  }
+
+  input:focus{
+    background: $secondaryColor;
+
+    &::placeholder {
+      color: white;
+    }
+  }
 
   * {
     margin-bottom: 5px;

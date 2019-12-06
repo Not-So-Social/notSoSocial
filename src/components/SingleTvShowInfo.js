@@ -28,8 +28,6 @@ class SingleTvShowInfo extends Component {
                     tvShow: response.data
                 })
 
-                // console.log(this.state.tvShow.image.original)
-
                 this.setState({
                     image: this.state.tvShow.image.original
                 })
@@ -41,20 +39,17 @@ class SingleTvShowInfo extends Component {
                 this.setState({
                     time: this.state.tvShow.schedule.time
                 })
-            // }).then(() => (
-            //     this.getShows(this.state.tvShows, this.state.selectedDay)
-            // )).catch(() => {
-            //     Swal.fire({
-            //         title: 'Error!',
-            //         text: 'Something went wrong!',
-            //         icon: 'error',
-            //         confirmButtonText: 'Cool'
-            //     })
-            // })
-        }).catch((error) => {
-            alert(error);
+        }).catch(() => {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })        
         })
     }
+
+    
 
     render(){
 
