@@ -18,7 +18,7 @@ form {
   flex-direction: column;
   background: $primaryColor;
   border: 2px solid $primaryBackgroundColor;
-  padding: 50px 30px;
+  padding: 50px 40px;
   color: $primaryBackgroundColor;
   border-radius: 15px;
   box-shadow: 5px 5px $primaryBackgroundColor;
@@ -45,5 +45,13 @@ form {
 
   * {
     margin-bottom: 5px;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    color: white;
+    &:hover {
+      background: $secondaryColor;
+    }
   }
 }
