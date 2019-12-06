@@ -47,7 +47,7 @@ class TvShows extends Component {
         for (let aShow in showList) {
             let broadCastDay = showList[aShow].schedule.days;
 
-            if ( broadCastDay.includes(dayOfWeek) ) {
+            if (broadCastDay.includes(dayOfWeek)) {
                 if (!showList[aShow].network) {
                     showList[aShow].network = showList[aShow].webChannel;
                 }
@@ -71,38 +71,35 @@ class TvShows extends Component {
         this.getShows(this.state.apiData, newDay);
     }
 
-    // // filter show once the user inputs the genre
-    // filteredShow = (event) => {
-    //     let filteredArrayGenre = [];
-    //     let userGenre = event.target.value;
-    //     this.state.showsFilteredByDay.map((data) => {
-    //         // console.log(filteredArrayGenre)
-    //         return (
-    //             data.genres.forEach((genre) => {
-    //                 if (genre === userGenre) {
-    //                     filteredArrayGenre.push(data)
-    //                     // console.log(filteredArrayGenre)
-    //                 }
-    //                 // } else if (filteredArrayGenre === []) {
-    //                 //     console.log(filteredArrayGenre)
-    //                 //     Swal.fire({
-    //                 //         title: 'Error!',
-    //                 //         text: 'Something went wrong!',
-    //                 //         icon: 'error',
-    //                 //         confirmButtonText: 'Cool'
-    //                 //     })
-    //                 // }
-    //             })
-    //         )
-    //     })
+    // filter show once the user inputs the genre
+    filteredShow = (event) => {
+        let filteredArrayGenre = [];
+        let userGenre = event.target.value;
+        this.state.showsFilteredByDay.map((data) => {
+            return (
+                data.genres.forEach((genre) => {
+                    if (genre === userGenre) {
+                        filteredArrayGenre.push(data)
+                        // console.log(filteredArrayGenre)
+                    }
+                })
+            )
+        })
+        if (!filteredArrayGenre[0]) {
+            console.log(filteredArrayGenre, "try")
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
+        this.setState({
+            showsFilteredByGenre: filteredArrayGenre
+        })
+    }
 
-
-    //     this.setState({
-    //         showsFilteredByGenre: filteredArrayGenre
-    //     })
-    // }
-
-
+    
 
     renderAllFilteredTvShows = () => {
         // if the first item in showsFilteredByGenre isn't null, we can start the function
@@ -161,39 +158,12 @@ class TvShows extends Component {
         }
     };
 
+
     // this function parses through the summary html and removes html tags from the string.
     removeTags = (rawString) => {
 
     }
 
-
-    // filter show once the user inputs the genre
-    filteredShow = (event) => {
-        let filteredArrayGenre = [];
-        let userGenre = event.target.value;
-        this.state.showsFilteredByDay.map((data) => {
-            return (
-                data.genres.forEach((genre) => {
-                    if (genre === userGenre) {
-                        filteredArrayGenre.push(data)
-                        // console.log(filteredArrayGenre)
-                    }
-                })
-            )
-        })
-        if (!filteredArrayGenre[0]) {
-            console.log(filteredArrayGenre, "try")
-            Swal.fire({
-                title: 'Error!',
-                text: 'Something went wrong!',
-                icon: 'error',
-                confirmButtonText: 'Cool'
-            })
-        }
-        this.setState({
-            showsFilteredByGenre: filteredArrayGenre
-        })
-    }
 
     render() {
         // console.log('state: ', this.state);
