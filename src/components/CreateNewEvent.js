@@ -2,11 +2,8 @@ import React, { Component } from "react";
 // firebase
 import Firebase from "../util/config";
 import "firebase/database";
-<<<<<<< HEAD
 import axios from "axios"
-=======
 import Swal from "sweetalert2";
->>>>>>> 653d8fa12dcc164e39089b2f48dc10ecb811c295
 
 // firebase database
 const db = Firebase.database();
