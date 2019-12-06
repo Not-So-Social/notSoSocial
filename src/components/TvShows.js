@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 class TvShows extends Component {
     constructor() {
@@ -71,36 +71,36 @@ class TvShows extends Component {
         this.getShows(this.state.apiData, newDay);
     }
 
-    // // filter show once the user inputs the genre
-    // filteredShow = (event) => {
-    //     let filteredArrayGenre = [];
-    //     let userGenre = event.target.value;
-    //     this.state.showsFilteredByDay.map((data) => {
-    //         // console.log(filteredArrayGenre)
-    //         return (
-    //             data.genres.forEach((genre) => {
-    //                 if (genre === userGenre) {
-    //                     filteredArrayGenre.push(data)
-    //                     // console.log(filteredArrayGenre)
-    //                 }
-    //                 // } else if (filteredArrayGenre === []) {
-    //                 //     console.log(filteredArrayGenre)
-    //                 //     Swal.fire({
-    //                 //         title: 'Error!',
-    //                 //         text: 'Something went wrong!',
-    //                 //         icon: 'error',
-    //                 //         confirmButtonText: 'Cool'
-    //                 //     })
-    //                 // }
-    //             })
-    //         )
-    //     })
+    // filter show once the user inputs the genre
+    filteredShow = (event) => {
+        let filteredArrayGenre = [];
+        let userGenre = event.target.value;
+        this.state.showsFilteredByDay.map((data) => {
+            // console.log(filteredArrayGenre)
+            return (
+                data.genres.forEach((genre) => {
+                    if (genre === userGenre) {
+                        filteredArrayGenre.push(data)
+                        // console.log(filteredArrayGenre)
+                    }
+                    // } else if (filteredArrayGenre === []) {
+                    //     console.log(filteredArrayGenre)
+                    //     Swal.fire({
+                    //         title: 'Error!',
+                    //         text: 'Something went wrong!',
+                    //         icon: 'error',
+                    //         confirmButtonText: 'Cool'
+                    //     })
+                    // }
+                })
+            )
+        })
 
 
-    //     this.setState({
-    //         showsFilteredByGenre: filteredArrayGenre
-    //     })
-    // }
+        this.setState({
+            showsFilteredByGenre: filteredArrayGenre
+        })
+    }
 
 
 
@@ -159,10 +159,6 @@ class TvShows extends Component {
                 );
             });
         }
-<<<<<<< HEAD
-      };
-    
-=======
     };
 
     // this function parses through the summary html and removes html tags from the string.
@@ -171,7 +167,6 @@ class TvShows extends Component {
     }
 
 
->>>>>>> 6f448cc8b2bc643177be57c78e9f2be480cb361d
     // filter show once the user inputs the genre
     filteredShow = (event) => {
         let filteredArrayGenre = [];
