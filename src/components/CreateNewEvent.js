@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // firebase
 import Firebase from "../util/config";
 import "firebase/database";
+import Swal from "sweetalert2";
 
 // firebase database
 const db = Firebase.database();
@@ -25,9 +26,14 @@ export default class CreateNewEvent extends Component {
         partySize: this.state.partySize,
         type: this.state.type
       });
+      Swal.fire("Good Job !", "Your event has been created!", "success");
     } else {
       // else show error message
-      console.log("input all values before submiting");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill all inputs!"
+      });
     }
   };
 
@@ -40,15 +46,33 @@ export default class CreateNewEvent extends Component {
 
   render() {
     return (
-      <div className="wrapper createNewEvent" >
+      <div className="wrapper createNewEvent">
         <h2>Event Creation</h2>
         <form onSubmit={this.handleOnSubmit}>
           <label htmlFor="eventName">please enter event name</label>
-          <input type="text" onChange={this.handelOnChange} id="eventName" placeholder="event name" />
+          <input
+            type="text"
+            onChange={this.handelOnChange}
+            id="eventName"
+            placeholder="event name"
+            value={this.state.eventName}
+          />
           <label htmlFor="partySize">please enter party size</label>
-          <input type="number" onChange={this.handelOnChange} id="partySize" placeholder="party size" />
+          <input
+            type="number"
+            onChange={this.handelOnChange}
+            id="partySize"
+            placeholder="party size"
+            value={this.state.partySize}
+          />
           <label htmlFor="type">please enter type of event</label>
-          <input type="text" onChange={this.handelOnChange} id="type" placeholder="type of event" />
+          <input
+            type="text"
+            onChange={this.handelOnChange}
+            id="type"
+            placeholder="type of event"
+            value={this.state.type}
+          />
           <input type="submit" value="Submit" />
         </form>
       </div>
