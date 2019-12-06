@@ -50,3 +50,21 @@ header {
         text-shadow: 5px 5px $secondaryColor;
     }
 }
+
+select {
+    -moz-appearance: none;
+	-webkit-appearance: none;
+    appearance: none;
+
+    border: 3px solid $primaryBackgroundColor;
+    border-radius: 6px;
+
+    font-size: 2.8rem;
+
+    background: $secondaryColor;
+    color: $primaryBackgroundColor;
+
+    background-image: url(../asset/arrowIcon.png);
+	background-repeat: no-repeat;
+	background-position: 95% center;
+}
