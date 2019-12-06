@@ -17,7 +17,9 @@ export default function DisplayResultDashboard(props) {
   //       <div className="tvShowResults">
   //         <h2>What you are doing instead</h2>
   //         <h2>{title}</h2>
+  //       <div className="tvShowResultsImageContainer">
   //         <img src={image} alt={name} />
+  //       </div>
   //         <a href={imdb}>Go to Imdb</a>
   //         <p>Genres: {genres}</p>
   //         <p>Network Name: {network}</p>

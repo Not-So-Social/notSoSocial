@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 class TvShows extends Component {
     constructor() {
@@ -11,6 +12,8 @@ class TvShows extends Component {
             showsFilteredByGenre: [],
             selectedDay: "Monday",
             selectedGenre: "Action",
+            showsArray: false,
+            genrerray: false,
         }
     }
 
@@ -57,6 +60,8 @@ class TvShows extends Component {
 
         this.setState({
             showsFilteredByDay: tempArray,
+            showsArray: true,
+            genreArray: false,
         });
     }
 
@@ -95,15 +100,18 @@ class TvShows extends Component {
             })
         }
         this.setState({
-            showsFilteredByGenre: filteredArrayGenre
+            showsFilteredByGenre: filteredArrayGenre,
+            showsArray: false,
+            genreArray: true,
         })
     }
 
-    renderAllFilteredTvShows = () => {
+    renderAllFilteredTvShows = (array) => {
         // if the first item in showsFilteredByGenre isn't null, we can start the function
-        if (this.state.showsFilteredByGenre[0]) {
+
+        if (array[0]) {
             // map the array of objects
-            return this.state.showsFilteredByGenre.map(show => {
+            return array.map(show => {
                 // for each obj in the arr, filter out only the info we want:
                 // TV show title
                 // tv show id for key
@@ -148,6 +156,7 @@ class TvShows extends Component {
                             <p>Genres: {genres}</p>
                             <p>Network Name: {network}</p>
                             <p>Time: {time}</p>
+                            <Link to={`/tv/${id}`}>Link here</Link>
                             {/* <div>{summaryHtml}</div> */}
                         </button>
                     </li>
@@ -196,13 +205,23 @@ class TvShows extends Component {
                     </select>
 
                 </div>
-                <div className="displaySection">
-                    <div className="displayInner">
-                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows()}</ul>
-                    </div>
-                </div>
+                {this.state.showsArray ?
+                    <div className="displaySection">
+                        <div className="displayInner">
+                            <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}</ul>
+                        </div>
+                    </div> :
+                    null
+                }
 
-
+                {this.state.genreArray ?
+                    <div className="displaySection">
+                        <div className="displayInner">
+                            <ul className="displayAllFilteredTvShows"> {this.renderAllFilteredTvShows(this.state.showsFilteredByGenre)}</ul>
+                        </div>
+                    </div> :
+                    null
+                }
             </div >
         )
     }
