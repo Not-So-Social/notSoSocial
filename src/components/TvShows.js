@@ -99,11 +99,11 @@ class TvShows extends Component {
         })
     }
 
-    renderAllFilteredTvShows = () => {
+    renderAllFilteredTvShows = (array) => {
         // if the first item in showsFilteredByGenre isn't null, we can start the function
-        if (this.state.showsFilteredByGenre[0]) {
+        if (array[0]) {
             // map the array of objects
-            return this.state.showsFilteredByGenre.map(show => {
+            return array.map(show => {
                 // for each obj in the arr, filter out only the info we want:
                 // TV show title
                 // tv show id for key
@@ -199,7 +199,13 @@ class TvShows extends Component {
                 </div>
                 <div className="displaySection">
                     <div className="displayInner">
-                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows()}</ul>
+                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}</ul>
+                    </div>
+                </div>
+
+                <div className="displaySection">
+                    <div className="displayInner">
+                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByGenre)}</ul>
                     </div>
                 </div>
 
