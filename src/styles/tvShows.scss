@@ -1,0 +1,50 @@
+.displayInner {
+    background: linear-gradient(45deg, $primaryBackgroundColor 60%, $secondaryColor)
+
+}
+
+.displaySection .displayInner{
+    overflow-y: hidden;
+}   
+
+.tvShowListItem {
+    border-radius: 10px;
+    
+    background: $primaryColor;
+    box-shadow: $secondaryColor 10px 10px;
+
+    h2, a, p {
+        color: $primaryBackgroundColor;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    a {
+        margin: 15px 0 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    a:hover,
+    a:focus {
+        color: orangered;
+    }
+
+    p {
+        margin-top: 2px;
+    }
+    
+    button {
+        border: none;
+        border-radius: 10px;
+
+        background: $primaryColor;
+    }
+}
+
+.tvShowListItem:hover, 
+.tvShowListItem:focus {
+    box-shadow: orangered 13px 13px; 
+}

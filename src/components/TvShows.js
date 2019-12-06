@@ -146,7 +146,7 @@ class TvShows extends Component {
 
                 // rendering the li
                 return (
-                    <li key={id}>
+                    <li className="tvShowListItem" key={id}>
                         <button
                             onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
                         >
