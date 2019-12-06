@@ -31,7 +31,7 @@ export default class FirebaseDatabase extends Component {
           // type: type of event
           // partySize: party size
           const eventObj = {
-            name: key,
+            name: event.eventName,
             type: event.type,
             partySize: event.partySize
           };
@@ -63,10 +63,12 @@ export default class FirebaseDatabase extends Component {
 
   render() {
     return (
-      <ul className="listOfEvents">
-        {/* only run renderEvents if allEventsArray isn't empty*/}
-        {this.state.allEventsArray && this.renderEvents()}
-      </ul>
+      <div className="wrapper">
+        <ul className="listOfEvents">
+          {/* only run renderEvents if allEventsArray isn't empty*/}
+          {this.state.allEventsArray && this.renderEvents()}
+        </ul>
+      </div>
     );
   }
 }
