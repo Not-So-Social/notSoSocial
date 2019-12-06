@@ -31,7 +31,7 @@ export default class FirebaseDatabase extends Component {
           // type: type of event
           // partySize: party size
           const eventObj = {
-            name: key,
+            name: event.eventName,
             type: event.type,
             partySize: event.partySize
           };

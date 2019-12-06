@@ -11,29 +11,29 @@ export default class CreateNewEvent extends Component {
   constructor() {
     super();
     this.state = {
-      eventName: null,
-      partySize: null,
-      type: null
+      eventName: "",
+      partySize: "",
+      type: ""
     };
   }
 
   handleOnSubmit = e => {
     e.preventDefault();
     // if none of the values in the state is null
-    if (Object.values(this.state) !== null) {
+    console.log();
+    if (Object.values(this.state).indexOf("") === -1) {
       // use the event name as the route key and update with party size and type of event info from state
-      db.ref(`events/${this.state.eventName}`).update({
+      let urlEventName = this.state.eventName.match(/[a-zA-Z]+/g);
+      db.ref(`events/${urlEventName}`).update({
+        eventName: this.state.eventName,
         partySize: this.state.partySize,
         type: this.state.type
       });
       Swal.fire("Good Job !", "Your event has been created!", "success");
     } else {
+      console.log("error");
       // else show error message
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please fill all inputs!"
-      });
+      Swal.fire("Oops...", "Please fill all inputs!", "error");
     }
   };
 
