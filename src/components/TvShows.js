@@ -139,14 +139,14 @@ class TvShows extends Component {
                     image,
                     imdb,
                     genres,
-                    summaryHtml,
+                    // summaryHtml,
                     network,
                     time
                 } = newTvShowObjectToDisplay;
 
                 // rendering the li
                 return (
-                    <li key={id}>
+                    <li className="tvShowListItem" key={id}>
                         <button
                             onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
                         >
