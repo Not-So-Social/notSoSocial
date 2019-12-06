@@ -40,7 +40,7 @@ export default class CreateNewEvent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper createNewEvent" >
         <form onSubmit={this.handleOnSubmit}>
           <label htmlFor="eventName">please enter event name</label>
           <input type="text" onChange={this.handelOnChange} id="eventName" />

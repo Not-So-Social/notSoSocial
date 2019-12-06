@@ -131,7 +131,7 @@ class TvShows extends Component {
                     image,
                     imdb,
                     genres,
-                    summaryHtml,
+                    // summaryHtml,
                     network,
                     time
                 } = newTvShowObjectToDisplay;

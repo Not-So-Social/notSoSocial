@@ -41,7 +41,6 @@ export default function DisplayResultDashboard(props) {
           </div>
           <div className="tvShowResults">
             <h2>What you are doing instead</h2>
-            <h2></h2>
             <div className="tvShowResultsImageContainer">
               <img
                 src="http://static.tvmaze.com/uploads/images/original_untouched/31/78286.jpg"
