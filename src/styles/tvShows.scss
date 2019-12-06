@@ -1,6 +1,5 @@
-ul.displayAllFilteredTvShows,
 .displayInner {
-    background: $primaryBackgroundColor;
+    background: linear-gradient(45deg, $primaryBackgroundColor 60%, $secondaryColor)
 
 }
 
@@ -12,7 +11,7 @@ ul.displayAllFilteredTvShows,
     border-radius: 10px;
     
     background: $primaryColor;
-
+    box-shadow: $secondaryColor 10px 10px;
 
     h2, a, p {
         color: $primaryBackgroundColor;
@@ -23,9 +22,14 @@ ul.displayAllFilteredTvShows,
     }
 
     a {
-        margin: 8px 0 5px;
+        margin: 15px 0 5px;
         font-weight: 700;
         text-transform: uppercase;
+    }
+
+    a:hover,
+    a:focus {
+        color: orangered;
     }
 
     p {
@@ -38,4 +42,9 @@ ul.displayAllFilteredTvShows,
 
         background: $primaryColor;
     }
+}
+
+.tvShowListItem:hover, 
+.tvShowListItem:focus {
+    box-shadow: orangered 13px 13px; 
 }
