@@ -30,17 +30,50 @@ section.DisplayResultDashboard {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border-radius: 10px;
+
+    background: $primaryColor;
+    box-shadow: $secondaryColor 10px 10px;
+
+    h2,
+    a,
+    p {
+      color: $primaryBackgroundColor;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    a {
+      margin: 15px 0 5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    a:hover,
+    a:focus {
+      color: orangered;
+    }
+
+    p {
+      margin-top: 2px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+
+      background: $primaryColor;
+    }
   }
 
   .eventResult {
     margin-right: 15px;
-
-
   }
 
   .tvShowResults {
     margin-left: 15px;
-
-    
   }
 }
