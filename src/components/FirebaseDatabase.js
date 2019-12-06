@@ -21,17 +21,25 @@ export default class FirebaseDatabase extends Component {
       const data = snapshot.val();
       let newStateWithEvents = []
       
+    // using a for loop we are getting each object's key and use it 
       for (const key in data) {
+        // if the data has the key
         if (data.hasOwnProperty(key)) {
+          // the constant object called event will be used to create a new object
           const event = data[key];
+          // name: event name
+          // type: type of event
+          // partySize: party size
           const eventObj = {
             name: key,
             type: event.type,
             partySize: event.partySize
           };
+          // push all events into the empty array in a loop
           newStateWithEvents.push(eventObj)
         }
       }
+      // set the state with the new array
       this.setState({
         allEventsArray: newStateWithEvents
       });

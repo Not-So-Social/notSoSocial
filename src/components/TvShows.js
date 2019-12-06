@@ -11,6 +11,8 @@ class TvShows extends Component {
             showsFilteredByGenre: [],
             selectedDay: "Monday",
             selectedGenre: "Action",
+            showsArray: false,
+            genrerray: false,
         }
     }
 
@@ -57,6 +59,8 @@ class TvShows extends Component {
 
         this.setState({
             showsFilteredByDay: tempArray,
+            showsArray: true,
+            genreArray: false,
         });
     }
 
@@ -95,12 +99,15 @@ class TvShows extends Component {
             })
         }
         this.setState({
-            showsFilteredByGenre: filteredArrayGenre
+            showsFilteredByGenre: filteredArrayGenre,
+            showsArray: false,
+            genreArray: true,
         })
     }
 
     renderAllFilteredTvShows = (array) => {
         // if the first item in showsFilteredByGenre isn't null, we can start the function
+
         if (array[0]) {
             // map the array of objects
             return array.map(show => {
@@ -162,7 +169,6 @@ class TvShows extends Component {
 
     }
 
-
     render() {
         // console.log('state: ', this.state);
         return (
@@ -197,19 +203,23 @@ class TvShows extends Component {
                     </select>
 
                 </div>
-                <div className="displaySection">
-                    <div className="displayInner">
-                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}</ul>
-                    </div>
-                </div>
+                {this.state.showsArray ?
+                    <div className="displaySection">
+                        <div className="displayInner">
+                            <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}</ul>
+                        </div>
+                    </div> :
+                    null
+                }
 
-                <div className="displaySection">
-                    <div className="displayInner">
-                        <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByGenre)}</ul>
-                    </div>
-                </div>
-
-
+                {this.state.genreArray ?
+                    <div className="displaySection">
+                        <div className="displayInner">
+                            <ul className="displayAllFilteredTvShows"> {this.renderAllFilteredTvShows(this.state.showsFilteredByGenre)}</ul>
+                        </div>
+                    </div> :
+                    null
+                }
             </div >
         )
     }
