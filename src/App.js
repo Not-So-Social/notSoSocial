@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./styles/style.scss";
-import TvShows from "./components/TvShows";
-import FirebaseDatabase from "./components/FirebaseDatabase";
-import DisplayResultDashboard from "./components/DisplayResultDashboard";
-import CreateNewEvent from './components/CreateNewEvent'
+// import TvShows from "./components/TvShows";
+// import FirebaseDatabase from "./components/FirebaseDatabase";
+// import DisplayResultDashboard from "./components/DisplayResultDashboard";
+// import CreateNewEvent from './components/CreateNewEvent';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import SingleTvShowInfo from './components/SingleTvShowInfo';
+import MainPage from './components/MainPage';
+
 class App extends Component {
   constructor() {
     super();
@@ -37,14 +41,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
-        <CreateNewEvent />
-        <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
-        {this.state.eventClicked && this.state.tvShowClicked && (
-          <DisplayResultDashboard eventClicked={this.state.eventClicked} tvShowClicked={this.state.tvShowClicked} />
-        )}
-      </div>
+      <Router>
+        <div>
+          
+        </div>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/tv/:id" component={SingleTvShowInfo} />
+
+      </Router>
     );
   }
 }
