@@ -99,6 +99,8 @@ class TvShows extends Component {
         })
     }
 
+    
+
     renderAllFilteredTvShows = () => {
         // if the first item in showsFilteredByGenre isn't null, we can start the function
         if (this.state.showsFilteredByGenre[0]) {
