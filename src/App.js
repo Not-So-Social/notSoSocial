@@ -4,7 +4,7 @@ import "./styles/style.scss";
 // import FirebaseDatabase from "./components/FirebaseDatabase";
 // import DisplayResultDashboard from "./components/DisplayResultDashboard";
 // import CreateNewEvent from './components/CreateNewEvent';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SingleTvShowInfo from './components/SingleTvShowInfo';
 import MainPage from './components/MainPage';
 

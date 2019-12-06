@@ -46,9 +46,10 @@ export default class CreateNewEvent extends Component {
 
   render() {
     return (
-      <div className="wrapper createNewEvent">
-        <h2>Event Creation</h2>
-        <form onSubmit={this.handleOnSubmit}>
+      <div className="wrapper createNewEvent" >
+        <h2>Didn't find an event for you? Create a new event here!</h2>  
+        
+      <form onSubmit={this.handleOnSubmit}>
           <label htmlFor="eventName">please enter event name</label>
           <input
             type="text"
@@ -58,8 +59,10 @@ export default class CreateNewEvent extends Component {
             value={this.state.eventName}
           />
           <label htmlFor="partySize">please enter party size</label>
+          
           <input
-            type="number"
+            type="number" 
+            min="1"
             onChange={this.handelOnChange}
             id="partySize"
             placeholder="party size"

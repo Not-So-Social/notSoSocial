@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 50vh;
+  margin-top: 50px;
 
   h2 {
     text-align: center;
@@ -15,10 +16,42 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid grey;
-  padding: 50px 30px;
+  background: $primaryColor;
+  border: 2px solid $primaryBackgroundColor;
+  padding: 50px 40px;
+  color: $primaryBackgroundColor;
+  border-radius: 15px;
+  box-shadow: 5px 5px $primaryBackgroundColor;
+
+
+  input {
+    border: none;
+    background: $primaryBackgroundColor;
+    border-radius: 30px;
+    padding: 10px;
+    &::placeholder {
+      color: white;
+    }
+
+  }
+
+  input:focus{
+    background: $secondaryColor;
+
+    &::placeholder {
+      color: white;
+    }
+  }
 
   * {
     margin-bottom: 5px;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    color: white;
+    &:hover {
+      background: $secondaryColor;
+    }
   }
 }
