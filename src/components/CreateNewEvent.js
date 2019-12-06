@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // firebase
 import Firebase from "../util/config";
 import "firebase/database";
+import axios from "axios"
 
 // firebase database
 const db = Firebase.database();
@@ -12,9 +13,49 @@ export default class CreateNewEvent extends Component {
     this.state = {
       eventName: null,
       partySize: null,
-      type: null
+      type: null,
+      apiKey: '851ca0e417e4da7927bb7094b0bb790d78758e507f353acd3aaa66d2e6e48462',
+      apiUrl: 'https://api.unsplash.com',
     };
   }
+
+  componentDidMount() {
+    axios({
+      "async": true,
+      "crossDomain": true,
+      "url": `${this.state.apiUrl}/search/photos?`,
+      "method": "GET",
+      params: {
+        query: "office",
+        client_id: `${this.state.apiKey}`
+        // per_page: 20
+      }
+    }).then((response) => {
+      console.log(response)
+      this.setState({
+        data: response.data
+      })
+    })
+  }
+
+  // componentDidMount() {
+  //   axios({
+  //     "async": true,
+  //     "crossDomain": true,
+  //     "url": `${this.state.apiUrl}/photos/?client_id=${this.state.apiKey}`,
+  //     "method": "GET",
+  //     params: {
+  //       per_page: 20,
+  //       order_by: "popular"
+  //     }
+  //   }).then((response) => {
+  //     console.log(response)
+  //     this.setState({
+  //       data: response.data
+  //     })
+  //   })
+  // }
+
 
   handleOnSubmit = e => {
     e.preventDefault();
