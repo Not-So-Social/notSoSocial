@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function DisplayResultDashboard(props) {
-  destructuring both props from app.js
+  // destructuring both props from app.js
   const {name, type, partySize} = props.eventClicked;
   const {title, image, imdb, genres, network, time} = props.tvShowClicked;
 
