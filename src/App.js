@@ -41,9 +41,11 @@ class App extends Component {
         <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
         <CreateNewEvent />
         <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
-        {this.state.eventClicked && this.state.tvShowClicked && (
+        {/* DisplayResultDashboard will only appear once the user has elected both the event and tvShow */}
+        {/* {this.state.eventClicked && this.state.tvShowClicked && (
           <DisplayResultDashboard eventClicked={this.state.eventClicked} tvShowClicked={this.state.tvShowClicked} />
-        )}
+        )} */}
+        <DisplayResultDashboard eventClicked={this.state.eventClicked} tvShowClicked={this.state.tvShowClicked} />
       </div>
     );
   }

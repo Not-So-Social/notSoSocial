@@ -1,0 +1,46 @@
+section.DisplayResultDashboard {
+  background-color: $primaryBackgroundColor;
+  height: 100vh;
+  color: $primaryColor;
+  padding-top: 50px;
+
+  .resultTitle {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: black;
+  }
+
+  .halfDivider {
+    display: flex;
+  }
+
+  .tvShowResultsImageContainer {
+    width: 50%;
+  }
+
+  .eventResult,
+  .tvShowResults {
+    position: relative;
+    width: 50%;
+    padding: 50px;
+    background: black;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .eventResult {
+    margin-right: 15px;
+
+
+  }
+
+  .tvShowResults {
+    margin-left: 15px;
+
+    
+  }
+}
