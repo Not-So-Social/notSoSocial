@@ -47,7 +47,10 @@ class TvShows extends Component {
         for (let aShow in showList) {
             let broadCastDay = showList[aShow].schedule.days;
 
-            if (broadCastDay.includes(dayOfWeek)) {
+            if ( broadCastDay.includes(dayOfWeek) ) {
+                if (!showList[aShow].network) {
+                    showList[aShow].network = showList[aShow].webChannel;
+                }
                 tempArray.push(showList[aShow]);
             }
         }
@@ -61,7 +64,6 @@ class TvShows extends Component {
     getDay = (event) => {
         event.preventDefault();
         let newDay = event.target.value;
-        console.log('day:', newDay)
         this.setState({
             selectedDay: newDay,
         })
@@ -157,6 +159,10 @@ class TvShows extends Component {
                 );
             });
         }
+<<<<<<< HEAD
+      };
+    
+=======
     };
 
     // this function parses through the summary html and removes html tags from the string.
@@ -165,6 +171,7 @@ class TvShows extends Component {
     }
 
 
+>>>>>>> 6f448cc8b2bc643177be57c78e9f2be480cb361d
     // filter show once the user inputs the genre
     filteredShow = (event) => {
         let filteredArrayGenre = [];
