@@ -1,0 +1,41 @@
+ul.displayAllFilteredTvShows,
+.displayInner {
+    background: $primaryBackgroundColor;
+
+}
+
+.displaySection .displayInner{
+    overflow-y: hidden;
+}   
+
+.tvShowListItem {
+    border-radius: 10px;
+    
+    background: $primaryColor;
+
+
+    h2, a, p {
+        color: $primaryBackgroundColor;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    a {
+        margin: 8px 0 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    p {
+        margin-top: 2px;
+    }
+    
+    button {
+        border: none;
+        border-radius: 10px;
+
+        background: $primaryColor;
+    }
+}
