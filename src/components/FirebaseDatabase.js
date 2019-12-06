@@ -16,10 +16,11 @@ export default class FirebaseDatabase extends Component {
 
   componentDidMount() {
     // getting all events from firebase db
-    db.once("value", snapshot => {
+    db.on("value", snapshot => {
       // getting the value from snapshot and put it in an data constant
       const data = snapshot.val();
-      //
+      let newStateWithEvents = []
+      
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           const event = data[key];
@@ -28,19 +29,20 @@ export default class FirebaseDatabase extends Component {
             type: event.type,
             partySize: event.partySize
           };
-          this.setState({
-            allEventsArray: [...this.state.allEventsArray, eventObj]
-          });
+          newStateWithEvents.push(eventObj)
         }
       }
+      this.setState({
+        allEventsArray: newStateWithEvents
+      });
     });
   }
 
   renderEvents = () => {
     // map through the all events array and render elements, for each event clicked call the retrieveEventClicked props and pass the eventClicked obj in so App.js will make use of it
-    return this.state.allEventsArray.map(eventClicked => {
+    return this.state.allEventsArray.map((eventClicked, i) => {
       return (
-        <li className="singleEvent" key={eventClicked.name}>
+        <li className="singleEvent" key={i}>
           <button onClick={() => this.props.retrieveEventClicked(eventClicked)}>
             <h2>{eventClicked.name}</h2>
             <p>type: {eventClicked.type}</p>
@@ -50,7 +52,6 @@ export default class FirebaseDatabase extends Component {
       );
     });
   };
-
 
   render() {
     return (

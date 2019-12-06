@@ -1,0 +1,51 @@
+import React, { Component } from "react";
+// firebase
+import Firebase from "../util/config";
+import "firebase/database";
+
+const db = Firebase.database();
+
+export default class CreateNewEvent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      eventName: null,
+      partySize: null,
+      type: null
+    };
+  }
+
+  handleOnSubmit = e => {
+    e.preventDefault();
+    if (Object.values(this.state) !== null) {
+      db.ref(`events/${this.state.eventName}`).update({
+        partySize: this.state.partySize,
+        type: this.state.type
+      });
+    } else {
+      console.log("input all values before submiting");
+    }
+  };
+
+  handelOnChange = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleOnSubmit}>
+          <label htmlFor="eventName">please enter event name</label>
+          <input type="text" onChange={this.handelOnChange} id="eventName" />
+          <label htmlFor="partySize">please enter party size</label>
+          <input type="number" onChange={this.handelOnChange} id="partySize" />
+          <label htmlFor="type">please enter type of event</label>
+          <input type="text" onChange={this.handelOnChange} id="type" />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    );
+  }
+}
