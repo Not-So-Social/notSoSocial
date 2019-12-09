@@ -1,3 +1,5 @@
+// the <ul> that contains the event objects pulled from firebase and displays
+//  them as a list.
 .listOfEvents {
     display: flex;
     flex-wrap: wrap;
@@ -10,6 +12,8 @@
     background: linear-gradient(50deg, $primaryColor 20%, $secondaryColor);
     box-shadow: $primaryBackgroundColor 0 0 5px;
 
+    // this describes each tv show list item displayed in 
+    //  .listOfEvents.
     .singleEvent {
         width: 30%;
         margin: 50px 10%;
@@ -19,6 +23,9 @@
 
         transition: all 0.15s ease-out;
 
+        // all of each .singleEvent <li> is covered by a button,
+        //  this allows the user to select their preferred show
+        //  and pass its value on to other components.
         button {
             width: 100%;
             min-height: 280px;

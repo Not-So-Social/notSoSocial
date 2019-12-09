@@ -1,20 +1,21 @@
+// the section that contains the select elements
+//  for day and TV show genre.
 .dropdownDays {
     background: $primaryBackgroundColor;
 }
 
-.displaySection {
-    margin-top: 20px;
-}
-
+// contains the <ul> in which the selected TV show list is displayed.
 .displayInner {
     border-radius: 5px;
     background: linear-gradient(45deg, $primaryBackgroundColor 60%, $secondaryColor);
 }
 
+// prevents the <ul> or its container from overflowing from <li> content.
 .displaySection .displayInner{
     overflow-y: hidden;
 }   
 
+// describes each <li> containing tv show data.
 .tvShowListItem {
     border-radius: 10px;
     
@@ -23,7 +24,9 @@
 
     transition: all 0.1s ease-out;
 
-    h2, a, p {
+    h2, 
+    a, 
+    p {
         color: $primaryBackgroundColor;
     }
 
@@ -33,6 +36,7 @@
 
     a {
         margin: 15px 0 5px;
+        
         font-weight: 700;
         text-transform: uppercase;
     }
@@ -46,6 +50,9 @@
         margin-top: 2px;
     }
     
+    // each tvShow <li> is covered by a button,
+    //  allowing the user to select their preferred
+    //  show and pass its data to other components.
     button {
         border: none;
         border-radius: 10px;
