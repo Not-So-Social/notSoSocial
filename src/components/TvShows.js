@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import CreateNewEvent from './CreateNewEvent';
+import FirebaseDatabase from './FirebaseDatabase';
+import DisplayResultDashboard from './DisplayResultDashboard';
+import SelectDay from './SelectDay';
+import SelectGenre from './SelectGenre';
 import { Link } from 'react-router-dom';
 
 class TvShows extends Component {
@@ -14,6 +19,8 @@ class TvShows extends Component {
             selectedGenre: "Action",
             showsArray: false,
             genreArray: false,
+            tvShowClicked: null,
+            eventClicked: null,
         }
     }
 
@@ -41,6 +48,17 @@ class TvShows extends Component {
             })
         })
     }
+    retrieveTvShowClicked = event => {
+        this.setState({
+            tvShowClicked: event
+        });
+    };
+
+    retrieveEventClicked = event => {
+        this.setState({
+            eventClicked: event
+        });
+    };
 
     // based on the day currently saved in state, make an API call to retrieve the shows airing then.
     // save the returned data to state as an array of show objects.
@@ -137,27 +155,17 @@ class TvShows extends Component {
                     title,
                     id,
                     image,
-                    imdb,
-                    genres,
-                    // summaryHtml,
-                    network,
-                    time
                 } = newTvShowObjectToDisplay;
 
                 // rendering the li
                 return (
                     <li className="tvShowListItem" key={id}>
                         <button
-                            onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
+                            onClick={() => this.retrieveTvShowClicked(newTvShowObjectToDisplay)}
                         >
                             <h2>{title}</h2>
                             <img src={image} alt={title} />
-                            <a href={imdb}>Go to Imdb</a>
-                            <p>Genres: {genres}</p>
-                            <p>Network Name: {network}</p>
-                            <p>Time: {time}</p>
-                            <Link to={`/tv/${id}`}>Link here</Link>
-                            {/* <div>{summaryHtml}</div> */}
+                            <Link to={`/tv/${id}`}>For more information, click here!</Link>
                         </button>
                     </li>
                 );
@@ -165,43 +173,18 @@ class TvShows extends Component {
         }
     };
 
-
-    // this function parses through the summary html and removes html tags from the string.
-    removeTags = (rawString) => {
-
-    }
-
     render() {
         // console.log('state: ', this.state);
         return (
-            <section className="selectSection">
-                <div className="dropdownDays">
-                {/* start of days selections */}
-                    <select name="days" id="days" onChange={this.getDay}>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                    </select>
-                {/* start of genres selection */}
-                    <select name="genres" id="genres" onChange={this.filteredShow}>
-                        <option value="Action">Action</option>
-                        <option value="Adventure">Adventure</option>
-                        <option value="Anime">Anime</option>
-                        <option value="Comedy">Comedy</option>
-                        <option value="Crime">Crime</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Family">Family</option>
-                        <option value="Mystery">Mystery</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Science-Fiction">Science-Fiction</option>
-                        <option value="Thriller">Thriller</option>
-                    </select>
-                </div>
-                {/* end of dropdown days */}
+            <div>
+                <section className="selectSection">
+                    <SelectDay getDay={this.getDay}/>
+
+                    <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
+                    <CreateNewEvent />
+
+                    <SelectGenre filteredShow={this.filteredShow} />
+
                 {/* start of displaySection filtered shows by day */}
                 {this.state.showsArray ?
                     <div className="tvShowWrapper displaySection">
@@ -221,7 +204,16 @@ class TvShows extends Component {
                     null
                 }
             </section >
-            // end of select section
+
+            <section>
+                {this.state.eventClicked && this.state.tvShowClicked && (
+                    <DisplayResultDashboard
+                        eventClicked={this.state.eventClicked}
+                        tvShowClicked={this.state.tvShowClicked}
+                    />
+                )}
+            </section>
+            </div>
         )
     }
 }
