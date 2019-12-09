@@ -72,3 +72,8 @@ select {
 	background-repeat: no-repeat;
 	background-position: 95% center;
 }
+
+select:hover,
+select:focus {
+    border: 3px solid $secondaryColor;
+}
