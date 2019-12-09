@@ -17,32 +17,9 @@ class App extends Component {
     };
   }
 
-  retrieveEventClicked = event => {
-    this.setState(
-      {
-        eventClicked: event
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
-  };
-
-  retrieveTvShowClicked = event => {
-    this.setState(
-      {
-        tvShowClicked: event
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
-  };
-
   render() {
     return (
       <Router>
-        <div></div>
         <Route exact path="/" component={MainPage} />
         <Route path="/tv/:id" component={SingleTvShowInfo} />
       </Router>

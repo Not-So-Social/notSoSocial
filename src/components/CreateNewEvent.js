@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // firebase
 import Firebase from "../util/config";
 import "firebase/database";
+// sweet alert
 import Swal from "sweetalert2";
 
 // firebase database
@@ -55,7 +56,6 @@ export default class CreateNewEvent extends Component {
     return (
       <section className="wrapper createNewEvent">
         <h2>Didn't find an event for you? Create a new event here!</h2>
-
         <form onSubmit={this.handleOnSubmit}>
           {/* Event Name */}
           <label htmlFor="eventName">please enter event name</label>
