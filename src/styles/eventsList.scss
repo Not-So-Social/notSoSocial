@@ -6,7 +6,7 @@
     justify-content: space-between;
 
     margin-bottom: 50px;
-    padding: 40px 40px;
+    padding: 20px;
     border-radius: 5px;
 
     background: linear-gradient(50deg, $primaryColor 20%, $secondaryColor);
@@ -15,8 +15,8 @@
     // this describes each tv show list item displayed in 
     //  .listOfEvents.
     .singleEvent {
-        width: 30%;
-        margin: 50px 10%;
+        width: 28%;
+        margin: 20px;
 
         box-shadow: $secondaryColor 15px 15px;
         text-align: center;
