@@ -3,6 +3,7 @@ import TvShows from "./TvShows";
 import FirebaseDatabase from "./FirebaseDatabase";
 import DisplayResultDashboard from "./DisplayResultDashboard";
 import CreateNewEvent from "./CreateNewEvent";
+import Header from "./Header";
 
 class MainPage extends Component {
   constructor() {
@@ -28,6 +29,8 @@ class MainPage extends Component {
   render() {
     return (
       <div>
+        {/* a functional component that renders the header */}
+        <Header />
         {/* get tvShows from tvMaze api and has a call back to set state on this component with a single tv show selected by use via onClick */}
         <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
         {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}

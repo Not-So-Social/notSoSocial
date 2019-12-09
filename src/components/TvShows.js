@@ -174,12 +174,9 @@ class TvShows extends Component {
     render() {
         // console.log('state: ', this.state);
         return (
-            <div>
-                <header>
-                    <h1> Not So Social </h1>
-                </header>
-
+            <section className="selectSection">
                 <div className="dropdownDays">
+                {/* start of days selections */}
                     <select name="days" id="days" onChange={this.getDay}>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
@@ -189,7 +186,7 @@ class TvShows extends Component {
                         <option value="Saturday">Saturday</option>
                         <option value="Sunday">Sunday</option>
                     </select>
-
+                {/* start of genres selection */}
                     <select name="genres" id="genres" onChange={this.filteredShow}>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
@@ -203,8 +200,9 @@ class TvShows extends Component {
                         <option value="Science-Fiction">Science-Fiction</option>
                         <option value="Thriller">Thriller</option>
                     </select>
-
                 </div>
+                {/* end of dropdown days */}
+                {/* start of displaySection filtered shows by day */}
                 {this.state.showsArray ?
                     <div className="displaySection">
                         <div className="displayInner">
@@ -213,7 +211,7 @@ class TvShows extends Component {
                     </div> :
                     null
                 }
-
+                {/* start of displaySection filtered shows by genre */}
                 {this.state.genreArray ?
                     <div className="displaySection">
                         <div className="displayInner">
@@ -222,7 +220,8 @@ class TvShows extends Component {
                     </div> :
                     null
                 }
-            </div >
+            </section >
+            // end of select section
         )
     }
 }
