@@ -156,11 +156,6 @@ class TvShows extends Component {
                     title,
                     id,
                     image,
-                    imdb,
-                    genres,
-                    // summaryHtml,
-                    network,
-                    time
                 } = newTvShowObjectToDisplay;
 
                 // rendering the li
@@ -173,11 +168,7 @@ class TvShows extends Component {
                         >
                             <h2>{title}</h2>
                             <img src={image} alt={title} />
-                            <a href={imdb}>Go to Imdb</a>
-                            <p>Genres: {genres}</p>
-                            <p>Network Name: {network}</p>
-                            <p>Time: {time}</p>
-                            <Link to={`/tv/${id}`}>Link here</Link>
+                            <Link to={`/tv/${id}`}>Click here for more info</Link>
                             {/* <div>{summaryHtml}</div> */}
                         </button>
                     </li>
@@ -197,8 +188,11 @@ class TvShows extends Component {
                 <SelectDay getDay={this.getDay}/>
                     {/* start of genres selection */}
 
+                {/* gets all events json object from firebase and render the page with those events in an ul element as a button, has a callback function that retrieves the event obj user selected via onClick, and sets the state with that event obj */}
+
                 <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
 
+                {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}
                 <CreateNewEvent />
 
                     
@@ -227,11 +221,13 @@ class TvShows extends Component {
                 {/* get random tv show button that shows up if genreArray isn't null */}
                 {this.state.genreArray ? (
                     <GetRandomTvShow
-                        retrieveTvShowClicked={this.props.retrieveTvShowClicked}
+                        retrieveTvShowClicked={this.retrieveTvShowClicked}
                         filteredTvShows={this.state.showsFilteredByGenre}
                     />
                 ) : null}
             </section>
+            
+            {/* once the state is set with both the user selected event and tv show, render the results at the end of the page */}
 
             {
             this.state.eventClicked && this.state.tvShowClicked && (
