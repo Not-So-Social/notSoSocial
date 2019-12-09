@@ -3,25 +3,42 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    background: linear-gradient(-155deg, $primaryColor 20%, $secondaryColor);
-
     padding: 80px 40px;
+    border-radius: 5px;
+
+    background: linear-gradient(50deg, $primaryColor 20%, $secondaryColor);
+    box-shadow: $primaryBackgroundColor 0 0 5px;
 
     .singleEvent {
         width: 30%;
         margin: 50px 10%;
 
         box-shadow: $secondaryColor 15px 15px;
-
         text-align: center;
+
+        transition: all 0.15s ease-out;
 
         button {
             width: 100%;
             min-height: 280px;
+            border: none;
 
             background: $primaryBackgroundColor;
-            border: none;
             color: $primaryColor;
         }
+
+    }
+
+    .singleEvent:hover,
+    .singleEvent:focus {
+        box-shadow: orangered 15px 15px;
+
+        h1 {
+            color: orangered;
+        }
+    }
+
+    .singleEvent:active {
+        box-shadow: orangered 15px -25px;
     }
 }

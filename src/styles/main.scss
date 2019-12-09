@@ -5,6 +5,8 @@ h1, h2, h3 {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
+
+    background: linear-gradient(-135deg, $primaryColor 20%, $secondaryColor);
 }
 
 // Display section tv shows
