@@ -3,11 +3,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 50vh;
+
+  min-height: 50vh;
   margin-top: 50px;
+  margin-bottom: 50px;
 
   h2 {
     text-align: center;
+    color: $primaryBackgroundColor;
   }
 }
 
@@ -16,6 +19,9 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  margin-top: 20px;
+
   background: $primaryColor;
   border: 2px solid $primaryBackgroundColor;
   padding: 50px 40px;
