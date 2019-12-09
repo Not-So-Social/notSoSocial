@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ca08dd4e5d4425a93257a664ee10170",
+    "revision": "5a52ee0542f46e01c35fcf4b7b44604e",
     "url": "/notSoSocial/index.html"
   },
   {
-    "revision": "f178b8d344b1c014ab74",
-    "url": "/notSoSocial/static/css/main.58ac43e6.chunk.css"
+    "revision": "de633692028729692c84",
+    "url": "/notSoSocial/static/css/main.5a0703a8.chunk.css"
   },
   {
-    "revision": "c90336adb0f988d45327",
-    "url": "/notSoSocial/static/js/2.a8cdcc01.chunk.js"
+    "revision": "c99578ec260cf2993804",
+    "url": "/notSoSocial/static/js/2.57d40c81.chunk.js"
   },
   {
-    "revision": "f178b8d344b1c014ab74",
-    "url": "/notSoSocial/static/js/main.71c345b9.chunk.js"
+    "revision": "de633692028729692c84",
+    "url": "/notSoSocial/static/js/main.df917906.chunk.js"
   },
   {
     "revision": "edc9b8950c9d629fec9c",
