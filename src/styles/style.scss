@@ -1,10 +1,13 @@
+// all scss styles consolidated here.
+// includes stylesheets, mixins and fonts.
+
 @import "setup.scss";
-@import "global.scss";
 @import "mixins";
+@import "global.scss";
 @import url('https://fonts.googleapis.com/css?family=Roboto|Sulphur+Point&display=swap');
 @import "main.scss";
 @import './DisplayResultDashboard.scss';
 @import './CreateNewEvent.scss';
 @import "tvShows.scss";
 @import "eventsList.scss";
-@import "SingleTvShowInfo";
+@import "SingleTvShowInfo.scss";
