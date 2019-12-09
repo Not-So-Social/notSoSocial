@@ -1,12 +1,15 @@
+// describes the element containing tv show data
+//  that takes up half of the final result dashboard.
 .tvShowInfo {
     display: flex;
 
     .tvShowDescription {
-        width: 40%;
-        margin: 5%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        width: 40%;
+        margin: 5%;
 
         @include forTablet {
             width: 100%;
@@ -19,11 +22,12 @@
     }
 
     .tvShowNameAndPhoto {
-        width: 40%;
-        margin: 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        width: 40%;
+        margin: 5%;
 
         @include forTablet {
             width: 100%;

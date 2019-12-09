@@ -1,10 +1,36 @@
-import React from "react";
+import React, {Component} from "react";
+import axios from "axios"
 
-export default function DisplayResultDashboard(props) {
+export default class DisplayResultDashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      socialEventImage: ""
+    }
+  }
+
+  componentDidMount() {
+  const {name} = this.props.eventClicked;
+  axios({
+        url: "https://api.giphy.com/v1/gifs/search?",
+        method: "GET",
+        dataType: "json",
+        params: {
+          api_key: "jRZvAnoNBqc9hIvol9x5B8ImgDUKOuSY",
+          q: name,
+        }
+    }).then((data) => {
+      console.log(data.data.data[0].images.original.url)
+      this.setState({
+        socialEventImage : data.data.data[0].images.original.url
+      })
+    })
+  }
+
+  render() {
   // destructuring both props from app.js
-  const { name, type, partySize } = props.eventClicked;
-  const { title, image, imdb, genres, network, time } = props.tvShowClicked;
-
+  const { name, type, partySize} = this.props.eventClicked;
+  const { title, image, imdb, genres, network, time } = this.props.tvShowClicked;
   return (
     <section className="DisplayResultDashboard">
       <div className="wrapper">
@@ -12,6 +38,7 @@ export default function DisplayResultDashboard(props) {
         <div className="halfDivider">
           <div className="eventResult">
             <h2>Social Event details</h2>
+            <img src= {this.state.socialEventImage} alt ="gif" /> 
             <p>Name: {name}</p>
             <p>Type: {type}</p>
             <p>Party Size: {partySize}</p>
@@ -30,5 +57,6 @@ export default function DisplayResultDashboard(props) {
         </div>
       </div>
     </section>
-  );
-}
+  )
+}}
+

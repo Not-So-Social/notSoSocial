@@ -1,23 +1,14 @@
-h1, h2, h3 {
-    font-family: 'Sulphur Point', sans-serif;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
-
-    background: linear-gradient(-135deg, $primaryColor 20%, $secondaryColor);
-}
+// general and specific styles for elements that 
+//  appear in the <main> section of the app.
 
 // Display section tv shows
-
 .displaySection {
     width: 100%;
 
     .displayInner {
-        // width: 7000px;
         overflow: scroll;
-        max-width:100%;
+
+        max-width: 100%;
         height: auto;
 
         .displayAllFilteredTvShows {
@@ -27,10 +18,12 @@ body {
                 margin: 20px;
 
                 button {
-                    width: 300px;
-                    padding: 30px;
                     display: flex;
                     flex-direction: column;
+
+                    width: 300px;
+                    padding: 30px;
+
                     align-items: center;
                 }
             }
@@ -44,19 +37,20 @@ body {
 }
 
 header {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../asset/tvShowCollage.png);
-    background-size: cover;
-    // opacity: 0.5;
-    height: 100vh;
-    color: $primaryBackgroundColor;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    height: 100vh;
+
+    color: $primaryBackgroundColor;
     font-size: 4rem;
     text-align: center;
+
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../asset/tvShowCollage.png);
+    background-size: cover;
     animation: slide 25s linear infinite;
-
-
+    
     h1 {
         text-shadow: 5px 5px $secondaryColor;
     }
@@ -71,8 +65,8 @@ select {
     box-shadow: $secondaryColor 0 0 4px;
     font-size: 2.8rem;
     color: $primaryBackgroundColor;
-    background: $secondaryColor;
 
+    background: $secondaryColor;
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;

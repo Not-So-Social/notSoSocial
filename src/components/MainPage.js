@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import TvShows from "./TvShows";
 // import FirebaseDatabase from "./FirebaseDatabase";
 // import DisplayResultDashboard from "./DisplayResultDashboard";
@@ -17,11 +17,14 @@ class MainPage extends Component {
 
   render() {
     return (
-        <div>
-      <body>
+      <Fragment>
+        {/* skiplink */}
+        <a href="#maincontent" className="skip-link">
+          Skip to main content.
+        </a>
         {/* a functional component that renders the header */}
         <Header />
-        <main>
+        <main id="maincontent">
           {/* get tvShows from tvMaze api and has a call back to set state on this component with a single tv show selected by use via onClick */}
           <TvShows />
           {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}
@@ -30,8 +33,7 @@ class MainPage extends Component {
         </main>
         {/* footer, am I repeating myself? */}
         <Footer />
-      </body>
-        </div>
+      </Fragment>
     );
   }
 }
