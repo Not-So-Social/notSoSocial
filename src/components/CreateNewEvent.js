@@ -15,58 +15,37 @@ export default class CreateNewEvent extends Component {
       eventName: null,
       partySize: null,
       type: null,
-      apiKey: '851ca0e417e4da7927bb7094b0bb790d78758e507f353acd3aaa66d2e6e48462',
-      apiUrl: 'https://api.unsplash.com',
+      // socialEventImage: " "
     };
   }
 
-  componentDidMount() {
-    axios({
-      "async": true,
-      "crossDomain": true,
-      "url": `${this.state.apiUrl}/search/photos?`,
-      "method": "GET",
-      params: {
-        query: "office",
-        client_id: `${this.state.apiKey}`
-        // per_page: 20
-      }
-    }).then((response) => {
-      console.log(response)
-      this.setState({
-        data: response.data
-      })
-    })
-  }
-
-  // componentDidMount() {
+  // eventGif = (event) => {
   //   axios({
-  //     "async": true,
-  //     "crossDomain": true,
-  //     "url": `${this.state.apiUrl}/photos/?client_id=${this.state.apiKey}`,
-  //     "method": "GET",
+  //     url: "https://api.giphy.com/v1/gifs/search?",
+  //     method: "GET",
+  //     dataType: "json",
   //     params: {
-  //       per_page: 20,
-  //       order_by: "popular"
+  //       api_key: "jRZvAnoNBqc9hIvol9x5B8ImgDUKOuSY",
+  //       q: event,
+  //       rating: "PG",
   //     }
-  //   }).then((response) => {
-  //     console.log(response)
+  //   }).then((data) => {
+  //     console.log(data.data.data[0].url)
   //     this.setState({
-  //       data: response.data
-  //     })
+  //       socialEventImage: data.data.data[0].url
   //   })
-  // }
-
+  // })}
 
   handleOnSubmit = e => {
     e.preventDefault();
+    // this.eventGif(this.state.eventName);
     // if none of the values in the state is null
     if (Object.values(this.state).indexOf("") === -1) {
       // use the event name as the route key and update with party size and type of event info from state
       db.ref(`events`).push({
         eventName: this.state.eventName,
         partySize: this.state.partySize,
-        type: this.state.type
+        type: this.state.type,
       });
       Swal.fire("Good Job !", "Your event has been created!", "success");
       this.setState({
