@@ -9,9 +9,9 @@ class SingleTvShowInfo extends Component {
             tvShow: [],
             image: "",
             network: "",
-            time: ""
+            time: "",
+            summary: ""
         }
-
     }
 
     componentDidMount(){
@@ -43,6 +43,7 @@ class SingleTvShowInfo extends Component {
                 this.setState({
                     summary: this.state.tvShow.summary
                 })
+
         }).catch(() => {
             Swal.fire({
                 title: 'Error!',
@@ -53,32 +54,32 @@ class SingleTvShowInfo extends Component {
         })
     }
 
-    removeTags = () => {
-        parseArray = [...this.state.tvShow.summary];
-        newArray = [];
-        newString = "";
-        inProcess = false;
+    //  removeTags = (raw) => {
+    //     parseArray = [...this.state.summary];
+    //     newArray = [];
+    //     newString = "";
+    //     inProcess = false;
 
-        parseArray.forEach((item) => {
-            if (item === "<") {
-                inProcess = true;
-            };
+    //     parseArray.forEach((item) => {
+    //         if (item === "<") {
+    //             inProcess = true;
+    //         };
 
-            if (!inProcess) {
-                newArray.push(item);
-            };
+    //         if (!inProcess) {
+    //             newArray.push(item);
+    //         };
 
-            if (item === ">") {
-                inProcess = false;
-            };
-        });
+    //         if (item === ">") {
+    //             inProcess = false;
+    //         };
+    //     });
 
-        newArray.forEach((item) => {
-            newString += item;
-        });
+    //     newArray.forEach((item) => {
+    //         newString += item;
+    //     });
 
-        return (newString);
-    }
+    //     return (newString);
+    // }
 
     
 
@@ -93,7 +94,7 @@ class SingleTvShowInfo extends Component {
                 <p>Genres: {this.state.tvShow.genres}</p>
                 <p>Network Name: {this.state.network}</p>
                 <p>Time: {this.state.time}</p>
-                <p>{this.removeTags(this.state.tvShow.summary)}</p>
+                {/* <p>{this.removeIt()}</p> */}
             </div>
         )
     }
