@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SelectGenre(props) {
     return (
-        <div>
+        <div className="dropdownGenre">
             <label className="visuallyHidden" htmlFor="genres">please select a genre to get results for that genre</label>
             <select name="genres" id="genres" onChange={props.filteredShow}>
                 <option value="Action">Action</option>
