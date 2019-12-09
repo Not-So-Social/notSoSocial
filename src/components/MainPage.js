@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import TvShows from "./TvShows";
 import FirebaseDatabase from "./FirebaseDatabase";
 import DisplayResultDashboard from "./DisplayResultDashboard";
@@ -29,9 +29,9 @@ class MainPage extends Component {
 
   render() {
     return (
-      <body>
+      <Fragment>
         {/* skiplink */}
-        <a href="#maincontent" class="skip-link">
+        <a href="#maincontent" className="skip-link">
           Skip to main content.
         </a>
         {/* a functional component that renders the header */}
@@ -53,7 +53,7 @@ class MainPage extends Component {
         </main>
         {/* footer, am I repeating myself? */}
         <Footer />
-      </body>
+      </Fragment>
     );
   }
 }
