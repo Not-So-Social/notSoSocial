@@ -5,6 +5,8 @@ h1, h2, h3 {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
+
+    background: linear-gradient(-135deg, $primaryColor 20%, $secondaryColor);
 }
 
 // Display section tv shows
@@ -52,19 +54,26 @@ header {
 }
 
 select {
-    -moz-appearance: none;
-	-webkit-appearance: none;
-    appearance: none;
+    margin: 5px 0 5px 30px;
+    padding: 5px;
 
     border: 3px solid $primaryBackgroundColor;
     border-radius: 6px;
 
+    box-shadow: $secondaryColor 0 0 4px;
     font-size: 2.8rem;
-
-    background: $secondaryColor;
     color: $primaryBackgroundColor;
 
+    background: $secondaryColor;
+    -moz-appearance: none;
+	-webkit-appearance: none;
+    appearance: none;
     background-image: url(../asset/arrowIcon.png);
 	background-repeat: no-repeat;
 	background-position: 95% center;
+}
+
+select:hover,
+select:focus {
+    border: 3px solid $secondaryColor;
 }
