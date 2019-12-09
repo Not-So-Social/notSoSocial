@@ -227,8 +227,13 @@ class TvShows extends Component {
             </div>
           </div>
         ) : null}
-
-        {this.state.genreArray ? <GetRandomTvShow retrieveTvShowClicked={this.props.retrieveTvShowClicked}  filteredTvShows={this.state.showsFilteredByGenre} /> : null}
+        {/* get random tv show button that shows up if genreArray isn't null */}
+        {this.state.genreArray ? (
+          <GetRandomTvShow
+            retrieveTvShowClicked={this.props.retrieveTvShowClicked}
+            filteredTvShows={this.state.showsFilteredByGenre}
+          />
+        ) : null}
       </section>
       // end of select section
     );
@@ -236,4 +241,3 @@ class TvShows extends Component {
 }
 
 export default TvShows;
-

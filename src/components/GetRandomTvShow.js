@@ -9,12 +9,34 @@ export default class GetRandomTvShow extends Component {
     };
   }
 
-  renderAllFilteredTvShows = show => {
-    const { title, id, image, imdb, genres, network, time } = show;
+  renderRandomTvShow = show => {
+    let newRandomTvShowObjectToDisplay = {
+      title: show.name,
+      id: show.id,
+      image: show.image.original,
+      imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
+      genres: show.genres.join(" "),
+      summaryHtml: show.summary,
+      network: show.network.name,
+      time: show.schedule.time
+    };
+    const {
+      title,
+      id,
+      image,
+      imdb,
+      genres,
+      network,
+      time
+    } = newRandomTvShowObjectToDisplay;
 
     return (
-      <div key={id}>
-        <button onClick={() => this.props.retrieveTvShowClicked(show)}>
+      <div className="randomShow" key={id}>
+        <button
+          onClick={() =>
+            this.props.retrieveTvShowClicked(newRandomTvShowObjectToDisplay)
+          }
+        >
           <h2>{title}</h2>
           <img src={image} alt={title} />
           <a href={imdb}>Go to Imdb</a>
@@ -41,7 +63,7 @@ export default class GetRandomTvShow extends Component {
         <button onClick={this.handleOnClick}>Get Random Tv Show</button>
         <div>
           {this.state.randomTvShow &&
-            this.renderAllFilteredTvShows(this.state.randomTvShow)}
+            this.renderRandomTvShow(this.state.randomTvShow)}
         </div>
       </div>
     );
