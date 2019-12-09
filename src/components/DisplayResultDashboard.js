@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios"
+import Swal from "sweetalert2";
 
 export default class DisplayResultDashboard extends Component {
   constructor() {
@@ -20,11 +21,17 @@ export default class DisplayResultDashboard extends Component {
           q: name,
         }
     }).then((data) => {
-      console.log(data.data.data[0].images.original.url)
       this.setState({
         socialEventImage : data.data.data[0].images.original.url
       })
-    })
+    }).catch(() => {
+      Swal.fire({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "error",
+          confirmButtonText: "Cool"
+      });
+  });
   }
 
   render() {
