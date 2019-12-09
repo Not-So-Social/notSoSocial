@@ -1,6 +1,14 @@
-.displayInner {
-    background: linear-gradient(45deg, $primaryBackgroundColor 60%, $secondaryColor);
+.dropdownDays {
+    background: $primaryBackgroundColor;
+}
 
+.displaySection {
+    margin-top: 20px;
+}
+
+.displayInner {
+    border-radius: 5px;
+    background: linear-gradient(45deg, $primaryBackgroundColor 60%, $secondaryColor);
 }
 
 .displaySection .displayInner{
@@ -12,6 +20,8 @@
     
     background: $primaryColor;
     box-shadow: $secondaryColor 10px 10px;
+
+    transition: all 0.1s ease-out;
 
     h2, a, p {
         color: $primaryBackgroundColor;
@@ -47,4 +57,8 @@
 .tvShowListItem:hover, 
 .tvShowListItem:focus {
     box-shadow: orangered 13px 13px; 
+}
+
+.tvShowListItem:active {
+    box-shadow: orangered 13px -13px;
 }

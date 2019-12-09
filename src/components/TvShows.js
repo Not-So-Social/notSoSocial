@@ -13,7 +13,7 @@ class TvShows extends Component {
             selectedDay: "Monday",
             selectedGenre: "Action",
             showsArray: false,
-            genrerray: false,
+            genreArray: false,
         }
     }
 
@@ -151,7 +151,7 @@ class TvShows extends Component {
                             onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
                         >
                             <h2>{title}</h2>
-                            <img src={image} alt="sorted tv show results" />
+                            <img src={image} alt={title} />
                             <a href={imdb}>Go to Imdb</a>
                             <p>Genres: {genres}</p>
                             <p>Network Name: {network}</p>
@@ -174,12 +174,10 @@ class TvShows extends Component {
     render() {
         // console.log('state: ', this.state);
         return (
-            <div>
-                <header>
-                    <h1> Not So Social </h1>
-                </header>
-
+            <section className="selectSection">
                 <div className="dropdownDays">
+                {/* start of days selections */}
+                <label className="visuallyHidden" htmlFor="days">please select a day to get results for that day</label>
                     <select name="days" id="days" onChange={this.getDay}>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
@@ -189,7 +187,8 @@ class TvShows extends Component {
                         <option value="Saturday">Saturday</option>
                         <option value="Sunday">Sunday</option>
                     </select>
-
+                {/* start of genres selection */}
+                <label className="visuallyHidden" htmlFor="genres">please select a genre to get results for that genre</label>
                     <select name="genres" id="genres" onChange={this.filteredShow}>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
@@ -203,26 +202,28 @@ class TvShows extends Component {
                         <option value="Science-Fiction">Science-Fiction</option>
                         <option value="Thriller">Thriller</option>
                     </select>
-
                 </div>
+                {/* end of dropdown days */}
+                {/* start of displaySection filtered shows by day */}
                 {this.state.showsArray ?
-                    <div className="displaySection">
+                    <div className="tvShowWrapper displaySection">
                         <div className="displayInner">
                             <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}</ul>
                         </div>
                     </div> :
                     null
                 }
-
+                {/* start of displaySection filtered shows by genre */}
                 {this.state.genreArray ?
-                    <div className="displaySection">
+                    <div className="tvShowWrapper displaySection">
                         <div className="displayInner">
                             <ul className="displayAllFilteredTvShows"> {this.renderAllFilteredTvShows(this.state.showsFilteredByGenre)}</ul>
                         </div>
                     </div> :
                     null
                 }
-            </div >
+            </section >
+            // end of select section
         )
     }
 }

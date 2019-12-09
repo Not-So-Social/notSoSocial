@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // firebase
 import Firebase from "../util/config";
 import "firebase/database";
-import axios from "axios"
+// sweet alert
 import Swal from "sweetalert2";
 
 // firebase database
@@ -12,49 +12,34 @@ export default class CreateNewEvent extends Component {
   constructor() {
     super();
     this.state = {
-      eventName: null,
-      partySize: null,
-      type: null,
-      // socialEventImage: " "
+      eventName: "",
+      partySize: "",
+      type: ""
     };
   }
 
-  // eventGif = (event) => {
-  //   axios({
-  //     url: "https://api.giphy.com/v1/gifs/search?",
-  //     method: "GET",
-  //     dataType: "json",
-  //     params: {
-  //       api_key: "jRZvAnoNBqc9hIvol9x5B8ImgDUKOuSY",
-  //       q: event,
-  //       rating: "PG",
-  //     }
-  //   }).then((data) => {
-  //     console.log(data.data.data[0].url)
-  //     this.setState({
-  //       socialEventImage: data.data.data[0].url
-  //   })
-  // })}
-
   handleOnSubmit = e => {
     e.preventDefault();
-    // this.eventGif(this.state.eventName);
     // if none of the values in the state is null
     if (Object.values(this.state).indexOf("") === -1) {
       // use the event name as the route key and update with party size and type of event info from state
+      const { eventName, partySize, type } = this.state;
+      // push new event obj from state to firebase
       db.ref(`events`).push({
-        eventName: this.state.eventName,
-        partySize: this.state.partySize,
-        type: this.state.type,
+        eventName: eventName,
+        partySize: partySize,
+        type: type
       });
+      // success message
       Swal.fire("Good Job !", "Your event has been created!", "success");
+      // empty out the inputs after the user has submitted their new event
       this.setState({
         eventName: "",
         partySize: "",
         type: ""
       });
     } else {
-      console.log("error");
+      console.error("user inputs empty", this.state);
       // else show error message
       Swal.fire("Oops...", "Please fill all inputs!", "error");
     }
@@ -65,44 +50,53 @@ export default class CreateNewEvent extends Component {
     this.setState({
       [e.target.id]: e.target.value
     });
-    console.log(this.state);
   };
 
   render() {
     return (
-      <div className="wrapper createNewEvent" >
+      <section className="wrapper createNewEvent">
         <h2>Didn't find an event for you? Create a new event here!</h2>
-
         <form onSubmit={this.handleOnSubmit}>
+          {/* Event Name */}
           <label htmlFor="eventName">please enter event name</label>
           <input
             type="text"
             onChange={this.handelOnChange}
             id="eventName"
+            name="eventName"
             placeholder="event name"
             value={this.state.eventName}
           />
+          {/* Event party size */}
           <label htmlFor="partySize">please enter party size</label>
-
           <input
             type="number"
             min="1"
             onChange={this.handelOnChange}
             id="partySize"
+            name="partySize"
             placeholder="party size"
             value={this.state.partySize}
           />
+          {/* Event type */}
           <label htmlFor="type">please enter type of event</label>
           <input
             type="text"
             onChange={this.handelOnChange}
             id="type"
+            name="type"
             placeholder="type of event"
             value={this.state.type}
           />
-          <input type="submit" value="Submit" />
+          {/* Submit button */}
+
+          <label className="visuallyHidden" htmlFor="submit">
+            submit your new event here
+          </label>
+          <input type="submit" id="submit" name="submit" value="Submit" />
         </form>
-      </div>
+      </section>
+      // end of create new event section
     );
   }
 }

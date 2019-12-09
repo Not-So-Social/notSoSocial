@@ -18,7 +18,7 @@ removeTags = (rawString) => {
         };
 
         if (item === ">") {
-             inProcess = false; 
+            inProcess = false; 
         }; 
     });
 
