@@ -58,17 +58,17 @@ class MainPage extends Component {
         };
     }
 
-    retrieveEventClicked = event => {
-        this.setState({
-            eventClicked: event
-        });
-    };
+    // retrieveEventClicked = event => {
+    //     this.setState({
+    //         eventClicked: event
+    //     });
+    // };
 
-    retrieveTvShowClicked = event => {
-        this.setState({
-            tvShowClicked: event
-        });
-    };
+    // retrieveTvShowClicked = event => {
+    //     this.setState({
+    //         tvShowClicked: event
+    //     });
+    // };
 
     render() {
         return (
@@ -83,16 +83,15 @@ class MainPage extends Component {
                     {/* get tvShows from tvMaze api and has a call back to set state on this component with a single tv show selected by use via onClick */}
                     <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
                     {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}
-                    <CreateNewEvent />
                     {/* gets all events json object from firebase and render the page with those events in an ul element as a button, has a callback function that retrieves the event obj user selected via onClick, and sets the state with that event obj */}
-                    <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
+                    {/* <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} /> */}
                     {/* once the state is set with both the user selected event and tv show, render the results at the end of the page */}
-                    {this.state.eventClicked && this.state.tvShowClicked && (
+                    {/* {this.state.eventClicked && this.state.tvShowClicked && (
                         <DisplayResultDashboard
                             eventClicked={this.state.eventClicked}
                             tvShowClicked={this.state.tvShowClicked}
                         />
-                    )}
+                    )} */}
                 </main>
                 {/* footer, am I repeating myself? */}
                 <Footer />
