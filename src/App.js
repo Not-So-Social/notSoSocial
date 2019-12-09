@@ -42,9 +42,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          
-        </div>
         <Route exact path="/" component={MainPage} />
         <Route path="/tv/:id" component={SingleTvShowInfo} />
 
