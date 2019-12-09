@@ -177,6 +177,7 @@ class TvShows extends Component {
             <section className="selectSection">
                 <div className="dropdownDays">
                 {/* start of days selections */}
+                <label className="visuallyHidden" htmlFor="days">please select a day to get results for that day</label>
                     <select name="days" id="days" onChange={this.getDay}>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
@@ -187,6 +188,7 @@ class TvShows extends Component {
                         <option value="Sunday">Sunday</option>
                     </select>
                 {/* start of genres selection */}
+                <label className="visuallyHidden" htmlFor="genres">please select a genre to get results for that genre</label>
                     <select name="genres" id="genres" onChange={this.filteredShow}>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>

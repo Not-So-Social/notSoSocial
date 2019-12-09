@@ -89,7 +89,8 @@ export default class CreateNewEvent extends Component {
             value={this.state.type}
           />
           {/* Submit button */}
-          <label aria-hidden="true" htmlFor="submit">
+
+          <label className="visuallyHidden" htmlFor="submit">
             submit your new event here
           </label>
           <input type="submit" id="submit" name="submit" value="Submit" />
