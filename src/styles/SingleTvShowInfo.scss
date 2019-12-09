@@ -1,0 +1,37 @@
+.tvShowInfo {
+    display: flex;
+
+    .tvShowDescription {
+        width: 40%;
+        margin: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include forTablet {
+            width: 100%;
+            margin: 0 12%;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    }
+
+    .tvShowNameAndPhoto {
+        width: 40%;
+        margin: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include forTablet {
+            width: 100%;
+        }
+
+    }
+
+    @include forTablet {
+        flex-wrap: wrap;
+    }
+}
