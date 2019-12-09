@@ -9,9 +9,9 @@ class SingleTvShowInfo extends Component {
             tvShow: [],
             image: "",
             network: "",
-            time: ""
+            time: "",
+            summary: ""
         }
-
     }
 
     componentDidMount(){
@@ -39,6 +39,11 @@ class SingleTvShowInfo extends Component {
                 this.setState({
                     time: this.state.tvShow.schedule.time
                 })
+
+                this.setState({
+                    summary: this.state.tvShow.summary
+                })
+
         }).catch(() => {
             Swal.fire({
                 title: 'Error!',
@@ -48,6 +53,33 @@ class SingleTvShowInfo extends Component {
             })        
         })
     }
+
+    //  removeTags = (raw) => {
+    //     parseArray = [...this.state.summary];
+    //     newArray = [];
+    //     newString = "";
+    //     inProcess = false;
+
+    //     parseArray.forEach((item) => {
+    //         if (item === "<") {
+    //             inProcess = true;
+    //         };
+
+    //         if (!inProcess) {
+    //             newArray.push(item);
+    //         };
+
+    //         if (item === ">") {
+    //             inProcess = false;
+    //         };
+    //     });
+
+    //     newArray.forEach((item) => {
+    //         newString += item;
+    //     });
+
+    //     return (newString);
+    // }
 
     
 
@@ -62,9 +94,7 @@ class SingleTvShowInfo extends Component {
                 <p>Genres: {this.state.tvShow.genres}</p>
                 <p>Network Name: {this.state.network}</p>
                 <p>Time: {this.state.time}</p>
-                {/* <img src={`https://image.tmdb.org/t/p/w500${this.state.movieInfo.poster_path} */}
-                {/* `} alt="" /> */}
-                <p>{this.state.tvShow.summary}</p>
+                {/* <p>{this.removeIt()}</p> */}
             </div>
         )
     }

@@ -5,6 +5,8 @@ h1, h2, h3 {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
+
+    background: linear-gradient(-135deg, $primaryColor 20%, $secondaryColor);
 }
 
 // Display section tv shows
@@ -36,15 +38,24 @@ body {
     }
 }
 
+@keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -400px 0; }
+}
+
 header {
-    background: $primaryBackgroundColor;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../asset/tvShowCollage.png);
+    background-size: cover;
+    // opacity: 0.5;
     height: 100vh;
-    color: $primaryColor;
+    color: $primaryBackgroundColor;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 4rem;
     text-align: center;
+    animation: slide 25s linear infinite;
+
 
     h1 {
         text-shadow: 5px 5px $secondaryColor;
@@ -52,19 +63,26 @@ header {
 }
 
 select {
-    -moz-appearance: none;
-	-webkit-appearance: none;
-    appearance: none;
+    margin: 5px 0 5px 30px;
+    padding: 5px;
 
     border: 3px solid $primaryBackgroundColor;
     border-radius: 6px;
 
+    box-shadow: $secondaryColor 0 0 4px;
     font-size: 2.8rem;
-
-    background: $secondaryColor;
     color: $primaryBackgroundColor;
 
+    background: $secondaryColor;
+    -moz-appearance: none;
+	-webkit-appearance: none;
+    appearance: none;
     background-image: url(../asset/arrowIcon.png);
 	background-repeat: no-repeat;
 	background-position: 95% center;
+}
+
+select:hover,
+select:focus {
+    border: 3px solid $secondaryColor;
 }
