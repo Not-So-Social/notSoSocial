@@ -57,7 +57,7 @@ class SingleTvShowInfo extends Component {
         return(
             <div>
                 <h2>{this.state.tvShow.name}</h2>
-                <img src={this.state.image} alt="sorted tv show results" />
+                <img src={this.state.image} alt={this.state.tvShow.name} />
                 {/* <a href={this.state.tvShow.imdb}>Go to Imdb</a> */}
                 <p>Genres: {this.state.tvShow.genres}</p>
                 <p>Network Name: {this.state.network}</p>

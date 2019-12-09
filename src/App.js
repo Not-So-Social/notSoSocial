@@ -4,9 +4,9 @@ import "./styles/style.scss";
 // import FirebaseDatabase from "./components/FirebaseDatabase";
 // import DisplayResultDashboard from "./components/DisplayResultDashboard";
 // import CreateNewEvent from './components/CreateNewEvent';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import SingleTvShowInfo from './components/SingleTvShowInfo';
-import MainPage from './components/MainPage';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SingleTvShowInfo from "./components/SingleTvShowInfo";
+import MainPage from "./components/MainPage";
 
 class App extends Component {
   constructor() {
@@ -28,7 +28,7 @@ class App extends Component {
     );
   };
 
-  retrieveTvShowClicked = (event) => {
+  retrieveTvShowClicked = event => {
     this.setState(
       {
         tvShowClicked: event
@@ -37,17 +37,14 @@ class App extends Component {
         console.log(this.state);
       }
     );
-  }
+  };
 
   render() {
     return (
       <Router>
-        <div>
-          
-        </div>
+        <div></div>
         <Route exact path="/" component={MainPage} />
         <Route path="/tv/:id" component={SingleTvShowInfo} />
-
       </Router>
     );
   }

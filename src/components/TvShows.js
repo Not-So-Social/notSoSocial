@@ -151,7 +151,7 @@ class TvShows extends Component {
                             onClick={() => this.props.retrieveTvShowClicked(newTvShowObjectToDisplay)}
                         >
                             <h2>{title}</h2>
-                            <img src={image} alt="sorted tv show results" />
+                            <img src={image} alt={title} />
                             <a href={imdb}>Go to Imdb</a>
                             <p>Genres: {genres}</p>
                             <p>Network Name: {network}</p>
