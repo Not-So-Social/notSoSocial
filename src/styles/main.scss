@@ -38,15 +38,24 @@ body {
     }
 }
 
+@keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -400px 0; }
+}
+
 header {
-    background: $primaryBackgroundColor;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../asset/tvShowCollage.png);
+    background-size: cover;
+    // opacity: 0.5;
     height: 100vh;
-    color: $primaryColor;
+    color: $primaryBackgroundColor;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 4rem;
     text-align: center;
+    animation: slide 25s linear infinite;
+
 
     h1 {
         text-shadow: 5px 5px $secondaryColor;
