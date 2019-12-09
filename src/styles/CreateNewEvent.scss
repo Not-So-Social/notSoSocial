@@ -1,3 +1,6 @@
+// the section that contains a from that allows the 
+//  user to create new events that are added to 
+//  firebase on submit.
 .createNewEvent {
   display: flex;
   justify-content: center;
@@ -14,6 +17,8 @@
   }
 }
 
+// the form that allows users to create new events
+//  that are then added to firebase.
 form {
   display: flex;
   justify-content: center;
@@ -21,20 +26,21 @@ form {
   flex-direction: column;
 
   margin-top: 20px;
+  padding: 50px 40px;
+  border: 2px solid $primaryBackgroundColor;
+  border-radius: 15px;
 
   background: $primaryColor;
-  border: 2px solid $primaryBackgroundColor;
-  padding: 50px 40px;
   color: $primaryBackgroundColor;
-  border-radius: 15px;
   box-shadow: 5px 5px $primaryBackgroundColor;
-
 
   input {
     border: none;
-    background: $primaryBackgroundColor;
     border-radius: 30px;
     padding: 10px;
+
+    background: $primaryBackgroundColor;
+    
     &::placeholder {
       color: white;
     }
