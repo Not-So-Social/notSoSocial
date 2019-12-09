@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function SelectDay(props) {
     return (
+        <div>
         <label className="visuallyHidden" htmlFor="genres">please select a genre to get results for that genre</label>
         <select name="genres" id="genres" onChange={props.filteredShow}>
             <option value="Action">Action</option>
@@ -16,5 +17,6 @@ export default function SelectDay(props) {
             <option value="Science-Fiction">Science-Fiction</option>
             <option value="Thriller">Thriller</option>
         </select>
+        </div>
     )
 }
