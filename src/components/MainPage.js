@@ -30,9 +30,13 @@ class MainPage extends Component {
   render() {
     return (
       <body>
+        {/* skiplink */}
+        <a href="#maincontent" class="skip-link">
+          Skip to main content.
+        </a>
         {/* a functional component that renders the header */}
         <Header />
-        <main>
+        <main id="maincontent">
           {/* get tvShows from tvMaze api and has a call back to set state on this component with a single tv show selected by use via onClick */}
           <TvShows retrieveTvShowClicked={this.retrieveTvShowClicked} />
           {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}
