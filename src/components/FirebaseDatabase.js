@@ -19,9 +19,9 @@ export default class FirebaseDatabase extends Component {
     db.on("value", snapshot => {
       // getting the value from snapshot and put it in an data constant
       const data = snapshot.val();
-      let newStateWithEvents = []
-      
-    // using a for loop we are getting each object's key and use it 
+      let newStateWithEvents = [];
+
+      // using a for loop we are getting each object's key and use it
       for (const key in data) {
         // if the data has the key
         if (data.hasOwnProperty(key)) {
@@ -36,7 +36,7 @@ export default class FirebaseDatabase extends Component {
             partySize: event.partySize
           };
           // push all events into the empty array in a loop
-          newStateWithEvents.push(eventObj)
+          newStateWithEvents.push(eventObj);
         }
       }
       // set the state with the new array
@@ -63,12 +63,14 @@ export default class FirebaseDatabase extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <ul className="listOfEvents">
-          {/* only run renderEvents if allEventsArray isn't empty*/}
-          {this.state.allEventsArray && this.renderEvents()}
-        </ul>
-      </div>
+      <section className="renderListOfEvents">
+        <div className="wrapper">
+          <ul className="listOfEvents">
+            {/* only run renderEvents if allEventsArray isn't empty*/}
+            {this.state.allEventsArray && this.renderEvents()}
+          </ul>
+        </div>
+      </section>
     );
   }
 }

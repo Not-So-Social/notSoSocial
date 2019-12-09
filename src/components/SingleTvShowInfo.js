@@ -43,13 +43,7 @@ class SingleTvShowInfo extends Component {
             })        
         })
 
-        // 
-
     }
-
-
-
-    
 
     render(){
 
