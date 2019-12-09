@@ -13,7 +13,7 @@ class TvShows extends Component {
             selectedDay: "Monday",
             selectedGenre: "Action",
             showsArray: false,
-            genrerray: false,
+            genreArray: false,
         }
     }
 
@@ -206,7 +206,7 @@ class TvShows extends Component {
 
                 </div>
                 {this.state.showsArray ?
-                    <div className="displaySection">
+                    <div className="tvShowWrapper displaySection">
                         <div className="displayInner">
                             <ul className="displayAllFilteredTvShows">{this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}</ul>
                         </div>
@@ -215,7 +215,7 @@ class TvShows extends Component {
                 }
 
                 {this.state.genreArray ?
-                    <div className="displaySection">
+                    <div className="tvShowWrapper displaySection">
                         <div className="displayInner">
                             <ul className="displayAllFilteredTvShows"> {this.renderAllFilteredTvShows(this.state.showsFilteredByGenre)}</ul>
                         </div>

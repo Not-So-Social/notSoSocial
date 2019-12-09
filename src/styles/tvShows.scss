@@ -2,7 +2,12 @@
     background: $primaryBackgroundColor;
 }
 
+.displaySection {
+    margin-top: 20px;
+}
+
 .displayInner {
+    border-radius: 5px;
     background: linear-gradient(45deg, $primaryBackgroundColor 60%, $secondaryColor);
 }
 

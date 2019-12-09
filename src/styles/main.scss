@@ -63,17 +63,16 @@ header {
 }
 
 select {
-    margin: 5px 0 5px 30px;
-    padding: 5px;
-
+    margin: 10px 0 10px 30px;
+    padding: 2px;
     border: 3px solid $primaryBackgroundColor;
     border-radius: 6px;
 
     box-shadow: $secondaryColor 0 0 4px;
     font-size: 2.8rem;
     color: $primaryBackgroundColor;
-
     background: $secondaryColor;
+
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;
