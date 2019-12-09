@@ -59,8 +59,8 @@ export default class GetRandomTvShow extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleOnClick}>Get Random Tv Show</button>
+      <div className="randomContainer">
+        <button className="randomButton" onClick={this.handleOnClick}>Get Random Tv Show</button>
         <div>
           {this.state.randomTvShow &&
             this.renderRandomTvShow(this.state.randomTvShow)}

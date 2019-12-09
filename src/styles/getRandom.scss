@@ -1,0 +1,55 @@
+// styles for GetRandomTvShow component.
+
+.randomContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 30px 0;
+
+    button.randomButton {
+        border: none;
+        padding: 80px 70px;
+        max-width: 270px;
+
+        clip-path: circle(45% at 50% 50%);
+
+        font-size: 3.0rem;
+        font-weight: 700;
+        color: $primaryColor;
+
+        transition: all 0.15s ease-out;
+        
+        background: linear-gradient(270deg, #ff0000, #ff9400, #eeff00, #00ff2b, #00e6ff, #1100ff, #d000ff, #ff0000);
+        background-size: 1600% 1600%;
+
+        -webkit-animation: randomGradient 10s ease-out 2;
+        -moz-animation: randomGradient 10s ease-out 2;
+        animation: randomGradient 10s ease-out 2;
+
+        @-webkit-keyframes randomGradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes randomGradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes randomGradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+    }
+
+    button.randomButton:hover,
+    button.randomButton:focus {
+        clip-path: circle(50% at 50% 50%);
+    }
+
+    button.randomButton:active {
+        clip-path: circle(40% at 50% 50%);
+    }
+}
