@@ -25,9 +25,14 @@ export default class DisplayResultDashboard extends Component {
       }
     })
       .then(data => {
+        const imageSrcArr = data.data.data;
+        const randomArrIndex = Math.floor(
+          Math.random() * Math.floor(imageSrcArr.length - 1)
+        );
+
         // set the state for the gif img element's src to use the gif link
         this.setState({
-          socialEventImage: data.data.data[0].images.original.url
+          socialEventImage: imageSrcArr[randomArrIndex].images.original.url
         });
         // once the state is set scroll to this component ref, section with the class of displayResultRef
         window.scrollTo({
@@ -46,9 +51,9 @@ export default class DisplayResultDashboard extends Component {
       });
   }
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps) {
     // if the previous state doesn't equal to the current state, it means the user has selected a new event, rerun axios call
-    if (prevState !== this.state) {
+    if (prevProps.eventClicked !== this.props.eventClicked) {
       const { name } = this.props.eventClicked;
       axios({
         url: "https://api.giphy.com/v1/gifs/search?",
@@ -60,11 +65,19 @@ export default class DisplayResultDashboard extends Component {
         }
       })
         .then(data => {
+          const imageSrcArr = data.data.data;
+          const randomArrIndex = () => {
+            return Math.floor(
+              Math.random() * Math.floor(imageSrcArr.length - 1)
+            );
+          };
+          // set the state for the gif img element's src to use the gif link
           this.setState({
-            socialEventImage: data.data.data[0].images.original.url
+            socialEventImage: imageSrcArr[randomArrIndex()].images.original.url
           });
         })
-        .catch(() => {
+        .catch(err => {
+          console.error(err);
           Swal.fire({
             title: "Error!",
             text: "Something went wrong!",
