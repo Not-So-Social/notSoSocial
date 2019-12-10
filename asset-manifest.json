@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/notSoSocial/static/css/main.cbd62847.chunk.css",
-    "main.js": "/notSoSocial/static/js/main.271cce5e.chunk.js",
-    "main.js.map": "/notSoSocial/static/js/main.271cce5e.chunk.js.map",
+    "main.js": "/notSoSocial/static/js/main.7306fce8.chunk.js",
+    "main.js.map": "/notSoSocial/static/js/main.7306fce8.chunk.js.map",
     "runtime-main.js": "/notSoSocial/static/js/runtime-main.f771d3c2.js",
     "runtime-main.js.map": "/notSoSocial/static/js/runtime-main.f771d3c2.js.map",
-    "static/js/2.25249325.chunk.js": "/notSoSocial/static/js/2.25249325.chunk.js",
-    "static/js/2.25249325.chunk.js.map": "/notSoSocial/static/js/2.25249325.chunk.js.map",
+    "static/js/2.7e3ef2a5.chunk.js": "/notSoSocial/static/js/2.7e3ef2a5.chunk.js",
+    "static/js/2.7e3ef2a5.chunk.js.map": "/notSoSocial/static/js/2.7e3ef2a5.chunk.js.map",
     "index.html": "/notSoSocial/index.html",
-    "precache-manifest.6ecc644a674034de9d0f44cda182ac3e.js": "/notSoSocial/precache-manifest.6ecc644a674034de9d0f44cda182ac3e.js",
+    "precache-manifest.1994a16907c87a0ef8d58c2dbcde935e.js": "/notSoSocial/precache-manifest.1994a16907c87a0ef8d58c2dbcde935e.js",
     "service-worker.js": "/notSoSocial/service-worker.js",
     "static/css/main.cbd62847.chunk.css.map": "/notSoSocial/static/css/main.cbd62847.chunk.css.map",
     "static/media/style.scss": "/notSoSocial/static/media/tvShowCollage.0a2ccae9.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f771d3c2.js",
-    "static/js/2.25249325.chunk.js",
+    "static/js/2.7e3ef2a5.chunk.js",
     "static/css/main.cbd62847.chunk.css",
-    "static/js/main.271cce5e.chunk.js"
+    "static/js/main.7306fce8.chunk.js"
   ]
 }

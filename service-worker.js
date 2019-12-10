@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/notSoSocial/precache-manifest.6ecc644a674034de9d0f44cda182ac3e.js"
+  "/notSoSocial/precache-manifest.1994a16907c87a0ef8d58c2dbcde935e.js"
 );
 
 self.addEventListener('message', (event) => {
