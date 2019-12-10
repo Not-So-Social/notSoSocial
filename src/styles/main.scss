@@ -11,6 +11,11 @@
         max-width: 100%;
         height: auto;
 
+        // &::-webkit-scrollbar:horizontal,
+        // &::-moz-scrollbar:horizontal  {
+        //     width: 100px;
+        // }
+
         .displayAllFilteredTvShows {
             display: flex;
 
