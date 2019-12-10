@@ -68,15 +68,17 @@ class SingleTvShowInfo extends Component {
           newArray.push(item);
         }
 
-          if (item === ">") {
-              inProcess = false;
-          }
+        if (item === ">") {
+          inProcess = false;
+        }
       });
-        newArray.forEach(item => {
-            newString += item;
-        });
-        // newborn
-        return newString;
+
+      newArray.forEach(item => {
+        newString += item;
+      });
+      
+      // newborn
+      return newString;
     };
 
         // console.log(this.state.tvShow.image)

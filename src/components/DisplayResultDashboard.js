@@ -114,9 +114,6 @@ export default class DisplayResultDashboard extends Component {
                 <img src={image} alt={name} />
               </div>
               <a href={imdb}>Go to Imdb</a>
-              <p>Genres: {genres}</p>
-              <p>Network Name: {network}</p>
-              <p>Time: {time}</p>
             </div>
             {/* end of tvShowResults*/}
           </div>
