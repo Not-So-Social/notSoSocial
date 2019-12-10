@@ -15,7 +15,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router basename="/notSoSocial">
+      <Router basename="/">
         <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/tv/:id" component={SingleTvShowInfo} />
