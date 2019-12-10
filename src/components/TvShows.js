@@ -27,7 +27,7 @@ class TvShows extends Component {
 
     componentDidMount() {
         axios({
-            url: "http://api.tvmaze.com/shows",
+            url: "https://api.tvmaze.com/shows",
             method: "GET",
             async: true,
             crossDomain: true,

@@ -17,7 +17,7 @@ class SingleTvShowInfo extends Component {
 
     componentDidMount(){
             axios({
-                url: `http://api.tvmaze.com/shows/${this.props.match.params.id}`,
+                url: `https://api.tvmaze.com/shows/${this.props.match.params.id}`,
                 method: 'GET',
                 "async": true,
                 "crossDomain": true,

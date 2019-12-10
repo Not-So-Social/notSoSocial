@@ -47,7 +47,7 @@ header {
     font-size: 4rem;
     text-align: center;
 
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../asset/tvShowCollage.png);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../asset/tvShowCollageMinified.png);
     background-size: cover;
     animation: slide 25s linear infinite;
     
@@ -59,29 +59,53 @@ header {
 select {
     // margin: 10px 0 10px 30px;
     margin: 0 auto;
-    padding: 2px;
+    padding: 2px 50px 2px 20px;
     border: 3px solid $primaryBackgroundColor;
     border-radius: 6px;
-
     box-shadow: $secondaryColor 0 0 4px;
     font-size: 2.8rem;
     color: $primaryBackgroundColor;
-
     background: $secondaryColor;
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;
     background-image: url(../asset/arrowIcon.png);
 	background-repeat: no-repeat;
-	background-position: 95% center;
+    background-position: 95% center;
 }
 
 .dropdownGenre, .dropdownDays {
     display: flex;
     justify-content: center;
+    padding: 30px 20px;
+
 }
 
 select:hover,
 select:focus {
-    border: 3px solid $secondaryColor;
+    border: 3px solid $primaryBackgroundColor;
+    background: $primaryColor;
+    background-image: url(../asset/arrowIcon.png);
+	background-repeat: no-repeat;
+    background-position: 95% center;
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+}
+
+.glow {
+  color: $primaryBackgroundColor;
+  text-align: center;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px $primaryColor, 0 0 7px $primaryColor, 0 0 10px $primaryColor, 0 0 10px $primaryColor, 0 0 10px $primaryColor, 0 0 5px $primaryColor, 0 0 5px $primaryColor;
+  }
+  
+  to {
+    text-shadow: 0 0 5px $primaryColor, 0 0 10px $secondaryColor, 0 0 15px $secondaryColor, 0 0 20px $secondaryColor, 0 0 10px $secondaryColor, 0 0 10px $secondaryColor, 0 0 5px $secondaryColor;
+  }
 }
