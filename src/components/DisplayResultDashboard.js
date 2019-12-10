@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default class DisplayResultDashboard extends Component {
   constructor() {
@@ -94,10 +95,7 @@ export default class DisplayResultDashboard extends Component {
     const {
       title,
       image,
-      imdb,
-      genres,
-      network,
-      time
+      id,
     } = this.props.tvShowClicked;
 
     return (
@@ -126,7 +124,7 @@ export default class DisplayResultDashboard extends Component {
               <div className="tvShowResultsImageContainer">
                 <img src={image} alt={name} />
               </div>
-              <a href={imdb}>Go to Imdb</a>
+              <Link to={`/tv/${id}`}>Click here for more info</Link>
             </div>
             {/* end of tvShowResults*/}
           </div>
