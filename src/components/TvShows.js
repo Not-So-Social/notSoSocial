@@ -189,7 +189,8 @@ class TvShows extends Component {
 
           {/* gets all events json object from firebase and render the page with those events in an ul element as a button, has a callback function that retrieves the event obj user selected via onClick, and sets the state with that event obj */}
           
-          <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} ref={ref => (this.scrollRef = ref)} />
+          <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked}/>
+          {/* <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} /> */}
           
 
           {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}
