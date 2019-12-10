@@ -34,8 +34,6 @@ class TvShows extends Component {
             dataType: "json"
         })
             .then(response => {
-                // console.log(response.data);
-
                 this.setState({
                     apiData: response.data
                 });
@@ -111,12 +109,10 @@ class TvShows extends Component {
             return data.genres.forEach(genre => {
                 if (genre === userGenre) {
                     filteredArrayGenre.push(data);
-                    // console.log(filteredArrayGenre)
                 }
             });
         });
         if (!filteredArrayGenre[0]) {
-            console.log(filteredArrayGenre, "try");
             Swal.fire({
                 title: "Error!",
                 text: "Something went wrong!",
@@ -184,12 +180,8 @@ class TvShows extends Component {
             });
         }
     };
-
-    // this function parses through the summary html and removes html tags from the string.
-    removeTags = rawString => { };
-
+    
     render() {
-        // console.log('state: ', this.state);
         return (
             <div>
             <section className="selectSection">

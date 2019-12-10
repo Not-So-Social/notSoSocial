@@ -24,8 +24,6 @@ class SingleTvShowInfo extends Component {
                 "crossDomain": true,
                 dataType: 'json',
             }).then((response) => {
-                console.log(response.data);
-
                 this.setState({
                     tvShow: response.data,
                     imageUrl: response.data.image.original,
@@ -78,8 +76,6 @@ class SingleTvShowInfo extends Component {
 
             return (newString);
         }
-
-        // console.log(this.state.tvShow.image)
         return(
             <div className="tvShowInfo">
                 <div className="tvShowPhoto">
