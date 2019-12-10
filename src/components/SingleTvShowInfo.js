@@ -72,9 +72,11 @@ class SingleTvShowInfo extends Component {
           inProcess = false;
         }
       });
+
       newArray.forEach(item => {
         newString += item;
       });
+      
       // newborn
       return newString;
     };
