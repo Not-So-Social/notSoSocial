@@ -31,7 +31,7 @@ export default class DisplayResultDashboard extends Component {
         });
         // once the state is set scroll to this component ref, section with the class of DisplayResultDashboard
         window.scrollTo({
-          top: this.myRef.offsetTop,
+          top: this.displayResultRef.offsetTop,
           left: 0,
           behavior: "smooth"
         });
@@ -90,7 +90,7 @@ export default class DisplayResultDashboard extends Component {
     return (
       <section
         className="DisplayResultDashboard"
-        ref={ref => (this.myRef = ref)}
+        ref={ref => (this.displayResultRef = ref)}
       >
         <div className="wrapper">
           <h2>Display Results:</h2>

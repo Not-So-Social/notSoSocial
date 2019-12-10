@@ -55,6 +55,12 @@ class TvShows extends Component {
         this.setState({
             eventClicked: event
         });
+        // once the state is set scroll to this component ref, section with the class of DisplayResultDashboard
+        window.scrollTo({
+            top: this.displayAllFilteredTvShowsRef.offsetTop,
+            left: 0,
+            behavior: "smooth"
+            });
     };
 
     retrieveTvShowClicked = event => {
@@ -204,7 +210,7 @@ class TvShows extends Component {
                 {this.state.showsArray ? (
                     <div className="tvShowWrapper displaySection">
                         <div className="displayInner">
-                            <ul className="displayAllFilteredTvShows">
+                            <ul className="displayAllFilteredTvShows" ref={ref => (this.displayAllFilteredTvShowsRef = ref)}>
                                 {this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}
                             </ul>
                         </div>
