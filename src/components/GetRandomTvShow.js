@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// react router
 import { Link } from "react-router-dom";
 
 export default class GetRandomTvShow extends Component {
@@ -9,26 +10,26 @@ export default class GetRandomTvShow extends Component {
     };
   }
 
+  handleOnClick = () => {
+    // getting the max shows in the array of filteredTvShows object passed as a prop
+    const maxTvShows = this.props.filteredTvShows.length - 1;
+    // get a random number with that maxTvShows as a constrain
+    let randomNumberIndex = Math.floor(Math.random() * Math.floor(maxTvShows));
+    // set the state outputted from the single object from filteredTvShows array prop and passing random index number from randomNumberIndex
+    this.setState({
+      randomTvShow: this.props.filteredTvShows[randomNumberIndex]
+    });
+  };
+
   renderRandomTvShow = show => {
+    // using the state passed in the render method when calling this function, re-organize it to information we need
     let newRandomTvShowObjectToDisplay = {
       title: show.name,
       id: show.id,
-      image: show.image.original,
-      imdb: `https://www.imdb.com/title/${show.externals.imdb}`,
-      genres: show.genres.join(" "),
-      summaryHtml: show.summary,
-      network: show.network.name,
-      time: show.schedule.time
+      image: show.image.original
     };
-    const {
-      title,
-      id,
-      image,
-      imdb,
-      genres,
-      network,
-      time
-    } = newRandomTvShowObjectToDisplay;
+    // destructuring for use
+    const { title, id, image } = newRandomTvShowObjectToDisplay;
 
     return (
       <div className="randomShow" key={id}>
@@ -45,20 +46,14 @@ export default class GetRandomTvShow extends Component {
     );
   };
 
-  handleOnClick = () => {
-    const maxTvShows = this.props.filteredTvShows.length;
-    let randomNumberIndex = Math.floor(Math.random() * Math.floor(maxTvShows));
-    this.setState({
-      randomTvShow: this.props.filteredTvShows[randomNumberIndex]
-    });
-  };
-
   render() {
     return (
       <div className="randomContainer">
-        <button className="randomButton" onClick={this.handleOnClick}>Get Random Tv Show</button>
+        <button className="randomButton" onClick={this.handleOnClick}>
+          Get Random Tv Show
+        </button>
         {this.state.randomTvShow &&
-            this.renderRandomTvShow(this.state.randomTvShow)}
+          this.renderRandomTvShow(this.state.randomTvShow)}
       </div>
     );
   }

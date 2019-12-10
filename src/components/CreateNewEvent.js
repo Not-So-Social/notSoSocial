@@ -4,7 +4,6 @@ import Firebase from "../util/config";
 import "firebase/database";
 // sweet alert
 import Swal from "sweetalert2";
-
 // firebase database
 const db = Firebase.database();
 
