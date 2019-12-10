@@ -65,11 +65,11 @@ export default class FirebaseDatabase extends Component {
     // map through the all events array and render elements, for each event clicked call the retrieveEventClicked props and pass the eventClicked obj in so App.js will make use of it
     return this.state.allEventsArray.map((eventClicked, i) => {
 
-const liStyle = {
-  background: `url(${eventClicked.socialEventImage})`,
-  backgroundRepeat: 'no-repeat',
-  
-}
+  const liStyle = {
+    background: `url(${eventClicked.socialEventImage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
 
       return (
         <li className="singleEvent" key={i}>
