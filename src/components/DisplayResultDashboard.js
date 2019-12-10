@@ -35,7 +35,6 @@ export default class DisplayResultDashboard extends Component {
         this.setState({
           socialEventImage: imageSrcArr[randomArrIndex].images.original.url
         });
-        console.log(this.displayResultRef.offsetTop)
         // once the state is set scroll to this component ref, section with the class of displayResultRef
         window.scrollTo({
           top: this.displayResultRef.offsetTop,
