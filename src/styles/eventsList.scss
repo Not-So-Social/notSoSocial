@@ -3,7 +3,7 @@
 .listOfEvents {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 
     margin-bottom: 50px;
     padding: 20px;
@@ -22,6 +22,14 @@
         text-align: center;
 
         transition: all 0.15s ease-out;
+
+        @include forSmallDesktop {
+            width: 33%;
+        }
+
+        @include forTablet {
+            width: 40%;
+        }
 
         // all of each .singleEvent <li> is covered by a button,
         //  this allows the user to select their preferred show
