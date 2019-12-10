@@ -50,6 +50,12 @@
     p {
         margin-top: 2px;
     }
+
+    img {
+        @include forPhone {
+            max-height: 290px;
+        }
+    }
     
     // each tvShow <li> is covered by a button,
     //  allowing the user to select their preferred
