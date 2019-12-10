@@ -75,12 +75,13 @@ export default class FirebaseDatabase extends Component {
         backgroundSize: "cover"
       };
 
+      const handleOnClick = event => {
+        this.props.retrieveEventClicked(event);
+      };
+
       return (
         <li className="singleEvent" key={i}>
-          <button
-            style={liStyle}
-            onClick={() => this.props.retrieveEventClicked(eventClicked)}
-          >
+          <button style={liStyle} onClick={() => handleOnClick(eventClicked)}>
             <div className="innerContainerText">
               <h2>{eventClicked.name}</h2>
               <p>type: {eventClicked.type}</p>
