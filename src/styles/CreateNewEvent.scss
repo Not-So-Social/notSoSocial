@@ -26,7 +26,7 @@ form {
   flex-direction: column;
 
   margin-top: 20px;
-  padding: 50px 40px;
+  padding: 40px;
   border: 2px solid $primaryBackgroundColor;
   border-radius: 15px;
 
@@ -40,9 +40,11 @@ form {
     padding: 10px;
 
     background: $primaryBackgroundColor;
+    transition: 0.2s all ease-in-out;
     
     &::placeholder {
       color: white;
+      padding-left: 10px;
     }
 
   }
