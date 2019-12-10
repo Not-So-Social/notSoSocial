@@ -51,6 +51,16 @@ img {
     max-width: 1200px;
     width: 80%;
     margin: 0 auto;
+
+    @include forTablet {
+        max-width: 900px;
+        width: 90%;
+    }
+
+    @include forPhone {
+        max-width: 599px;
+        width: 95%;
+    }
 }
 
 .tvShowWrapper {
