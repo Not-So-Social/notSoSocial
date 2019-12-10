@@ -1,4 +1,4 @@
-![tvShowCollage](https://github.com/Not-So-Social/notSoSocial/blob/master/src/asset/tvShowCollage.png)
+![tvShowCollage](https://github.com/Not-So-Social/notSoSocial/blob/master/src/asset/tvShowCollageMinified.png)
 
 ## Not So Social
 
