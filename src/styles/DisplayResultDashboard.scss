@@ -2,7 +2,7 @@
 //  React component.
 section.DisplayResultDashboard {
   background-color: $primaryBackgroundColor;
-  height: 100vh;
+  min-height: 100vh;
   color: $primaryColor;
   padding-top: 50px;
 
@@ -16,6 +16,9 @@ section.DisplayResultDashboard {
   // flex added for symmetry.
   .halfDivider {
     display: flex;
+    @include forTablet {
+      flex-direction: column;
+    }
   }
 
   // div that contains the image of the user-selected
@@ -48,10 +51,14 @@ section.DisplayResultDashboard {
     a,
     p {
       color: $primaryBackgroundColor;
+      text-align: center;
     }
 
     h2 {
       margin-bottom: 10px;
+      @include forPhone {
+          line-height: 1;
+      }
     }
 
     a {
@@ -76,6 +83,10 @@ section.DisplayResultDashboard {
 
       background: $primaryColor;
     }
+
+    @include forTablet {
+      width: 100%;
+    }
   }
 
   .eventResult {
@@ -84,5 +95,8 @@ section.DisplayResultDashboard {
 
   .tvShowResults {
     margin-left: 15px;
+    @include forTablet{
+      margin: 30px 0;
+    }
   }
 }

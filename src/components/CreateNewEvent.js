@@ -4,7 +4,6 @@ import Firebase from "../util/config";
 import "firebase/database";
 // sweet alert
 import Swal from "sweetalert2";
-
 // firebase database
 const db = Firebase.database();
 
@@ -39,7 +38,6 @@ export default class CreateNewEvent extends Component {
         type: ""
       });
     } else {
-      console.error("user inputs empty", this.state);
       // else show error message
       Swal.fire("Oops...", "Please fill all inputs!", "error");
     }
