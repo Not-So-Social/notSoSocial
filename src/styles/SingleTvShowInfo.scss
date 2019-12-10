@@ -2,8 +2,10 @@
 //  that takes up half of the final result dashboard.
 .tvShowInfo {
     display: flex;
-    height: calc(100vh - 100px);
-    margin: 50px auto;
+    margin: 0 auto;
+    background: black;  
+    padding: 50px 0;
+    color: white;
 
     @include forTablet {
         height: auto;
@@ -22,6 +24,22 @@
             margin: 20px 5%;
         }
 
+        a {
+            color: darken($secondaryColor,15%);
+                background: darken($primaryBackgroundColor, 50%);
+            padding: 7px;
+            width: 30%;
+            font-weight: bold;
+            margin: 20px 0;
+            border-radius: 2px;
+            &:hover {
+                color: darken($primaryBackgroundColor, 50%);
+            background: darken($secondaryColor,15%);
+                
+
+            }
+        }
+
         p {
             margin: 10px 0;
         }
@@ -32,8 +50,6 @@
 
         width: 40%;
         margin: 0 5%;
-
-        max-height: calc(100vh - 10%);
 
         @include forTablet {
             width: 100%;

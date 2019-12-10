@@ -177,16 +177,12 @@ class TvShows extends Component {
                             <h2>{title}</h2>
                             <img src={image} alt={title} />
                             <Link to={`/tv/${id}`}>Click here for more info</Link>
-                            {/* <div>{summaryHtml}</div> */}
                         </button>
                     </li>
                 );
             });
         }
     };
-
-    // this function parses through the summary html and removes html tags from the string.
-    removeTags = rawString => { };
 
     render() {
         // console.log('state: ', this.state);

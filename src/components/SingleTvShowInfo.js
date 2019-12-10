@@ -88,11 +88,12 @@ class SingleTvShowInfo extends Component {
                 <div className="tvShowDescription">
                     <h2>{this.state.tvShow.name}</h2>
 
-                    <a href={this.state.imdb}>Go to Imdb</a>
                     <p>Genres: {this.state.genre}</p>
                     <p>Network Name: {this.state.network}</p>
                     <p>Time: {this.state.time}</p>
                     <p>{removeTags(this.state.summary)}</p>
+                    <a href={this.state.imdb}>Go to Imdb</a>
+
                     <h3><Link to="/"> Return to main page </Link></h3>
 
                 </div>
