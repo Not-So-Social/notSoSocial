@@ -60,6 +60,29 @@
         padding: 30px;
         margin-top: 20px;
 
+        @include forTablet {
+            width: 50%;
+        }
+
+        @include forPhone {
+            width: 80%;
+            padding: 15px;
+        }
+
+        button {
+            @include forTablet {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            img {
+                @include forTablet {
+                    max-height: none;
+                }
+            }
+        }
+
         img {
             margin-bottom: 20px;
         }
