@@ -6,12 +6,15 @@ export default class DisplayResultDashboard extends Component {
   constructor() {
     super();
     this.state = {
+      // this is the image url for gif that renders
       socialEventImage: ""
     };
   }
 
   componentDidMount() {
+    // destructuring the name key from a single event obj passed as a prop
     const { name } = this.props.eventClicked;
+    // axios get to get the gif url from giphy api
     axios({
       url: "https://api.giphy.com/v1/gifs/search?",
       method: "GET",
@@ -22,8 +25,15 @@ export default class DisplayResultDashboard extends Component {
       }
     })
       .then(data => {
+        // set the state for the gif img element's src to use the gif link
         this.setState({
           socialEventImage: data.data.data[0].images.original.url
+        });
+        // once the state is set scroll to this component ref, section with the class of DisplayResultDashboard
+        window.scrollTo({
+          top: this.myRef.offsetTop,
+          left: 0,
+          behavior: "smooth"
         });
       })
       .catch(() => {
@@ -37,7 +47,8 @@ export default class DisplayResultDashboard extends Component {
   }
 
   componentDidUpdate(prevState) {
-    if (prevState === this.state) {
+    // if the previous state doesn't equal to the current state, it means the user has selected a new event,
+    if (prevState !== this.state) {
       const { name } = this.props.eventClicked;
       axios({
         url: "https://api.giphy.com/v1/gifs/search?",
@@ -75,19 +86,21 @@ export default class DisplayResultDashboard extends Component {
       network,
       time
     } = this.props.tvShowClicked;
+
     return (
       <section
         className="DisplayResultDashboard"
-        ref={input => {
-          this.nameInput = input;
-        }}
+        ref={ref => (this.myRef = ref)}
       >
         <div className="wrapper">
           <h2>Display Results:</h2>
           <div className="halfDivider">
             <div className="eventResult">
               <h2>Social Event details</h2>
-              <img src={this.state.socialEventImage} alt="gif" />
+              <img
+                src={this.state.socialEventImage}
+                alt="random gif that plays on page load representing the event"
+              />
               <p>Name: {name}</p>
               <p>Type: {type}</p>
               <p>Party Size: {partySize}</p>
