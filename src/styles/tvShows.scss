@@ -4,6 +4,12 @@
     background: inherit;
 }
 
+.innerContainerText {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    padding: 10px 0;
+    color: darken($primaryBackgroundColor, 20%);
+}
+
 // contains the <ul> in which the selected TV show list is displayed.
 .displayInner {
     border-radius: 5px;

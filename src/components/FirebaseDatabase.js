@@ -74,9 +74,11 @@ const liStyle = {
       return (
         <li className="singleEvent" key={i}>
           <button style={liStyle} onClick={() => this.props.retrieveEventClicked(eventClicked)}>
-            <h2>{eventClicked.name}</h2>
-            <p>type: {eventClicked.type}</p>
-            <p>party size: {eventClicked.partySize}</p>
+            <div className="innerContainerText">
+              <h2>{eventClicked.name}</h2>
+              <p>type: {eventClicked.type}</p>
+              <p>party size: {eventClicked.partySize}</p>
+            </div>
           </button>
         </li>
       );
