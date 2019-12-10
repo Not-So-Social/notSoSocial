@@ -2,6 +2,7 @@
 
 .randomContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -23,9 +24,9 @@
         background: linear-gradient(270deg, #ff0000, #ff9400, #eeff00, #00ff2b, #00e6ff, #1100ff, #d000ff, #ff0000);
         background-size: 1600% 1600%;
 
-        -webkit-animation: randomGradient 10s ease-out 2;
-        -moz-animation: randomGradient 10s ease-out 2;
-        animation: randomGradient 10s ease-out 2;
+        -webkit-animation: randomGradient 7s ease-out 3;
+        -moz-animation: randomGradient 7s ease-out 3;
+        animation: randomGradient 7s ease-out 3;
 
         @-webkit-keyframes randomGradient {
             0%{background-position:0% 50%}
@@ -51,5 +52,16 @@
 
     button.randomButton:active {
         clip-path: circle(40% at 50% 50%);
+    }
+
+    .randomShow {
+        width: 35%;
+        max-width: 400px;
+        padding: 30px;
+        margin-top: 20px;
+
+        img {
+            margin-bottom: 20px;
+        }
     }
 }

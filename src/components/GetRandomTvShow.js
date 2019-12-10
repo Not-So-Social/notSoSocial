@@ -39,11 +39,7 @@ export default class GetRandomTvShow extends Component {
         >
           <h2>{title}</h2>
           <img src={image} alt={title} />
-          <a href={imdb}>Go to Imdb</a>
-          <p>Genres: {genres}</p>
-          <p>Network Name: {network}</p>
-          <p>Time: {time}</p>
-          <Link to={`/tv/${id}`}>Link here</Link>
+          <Link to={`/tv/${id}`}>Click here for more info</Link>
         </button>
       </div>
     );
@@ -61,10 +57,8 @@ export default class GetRandomTvShow extends Component {
     return (
       <div className="randomContainer">
         <button className="randomButton" onClick={this.handleOnClick}>Get Random Tv Show</button>
-        <div>
-          {this.state.randomTvShow &&
+        {this.state.randomTvShow &&
             this.renderRandomTvShow(this.state.randomTvShow)}
-        </div>
       </div>
     );
   }
