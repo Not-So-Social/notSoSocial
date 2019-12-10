@@ -4,6 +4,12 @@
     background: inherit;
 }
 
+.innerContainerText {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    padding: 10px 0;
+    color: darken($primaryBackgroundColor, 20%);
+}
+
 // contains the <ul> in which the selected TV show list is displayed.
 .displayInner {
     border-radius: 5px;
@@ -50,6 +56,12 @@
     p {
         margin-top: 2px;
     }
+
+    img {
+        @include forPhone {
+            max-height: 290px;
+        }
+    }
     
     // each tvShow <li> is covered by a button,
     //  allowing the user to select their preferred
@@ -59,6 +71,10 @@
         border-radius: 10px;
 
         background: $primaryColor;
+
+        @include forPhone {
+            padding: 15px;
+        }
     }
 }
 

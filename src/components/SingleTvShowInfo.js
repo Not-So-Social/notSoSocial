@@ -72,32 +72,36 @@ class SingleTvShowInfo extends Component {
           inProcess = false;
         }
       });
+
       newArray.forEach(item => {
         newString += item;
       });
+      
       // newborn
       return newString;
     };
-    return (
-      <div className="tvShowInfo">
-        <div className="tvShowPhoto">
-          <img src={this.state.image} alt={this.state.tvShow.name} />
-        </div>
-        <div className="tvShowDescription">
-          <h2>{this.state.tvShow.name}</h2>
 
-          <a href={this.state.imdb}>Go to Imdb</a>
-          <p>Genres: {this.state.genre}</p>
-          <p>Network Name: {this.state.network}</p>
-          <p>Time: {this.state.time}</p>
-          <p>{removeTags(this.state.summary)}</p>
-          <h3>
-            <Link to="/"> Return to main page </Link>
-          </h3>
-        </div>
-      </div>
-    );
-  }
+        // console.log(this.state.tvShow.image)
+        return(
+            <div className="tvShowInfo">
+                <div className="tvShowPhoto">
+                    <img src={this.state.image} alt={this.state.tvShow.name} />
+                </div>
+                <div className="tvShowDescription">
+                    <h2>{this.state.tvShow.name}</h2>
+
+                    <p>Genres: {this.state.genre}</p>
+                    <p>Network Name: {this.state.network}</p>
+                    <p>Time: {this.state.time}</p>
+                    <p>{removeTags(this.state.summary)}</p>
+                    <a href={this.state.imdb}>Go to Imdb</a>
+
+                    <h3><Link to="/"> Return to main page </Link></h3>
+
+                </div>
+            </div>
+        )
+    }
 }
 
 export default SingleTvShowInfo;

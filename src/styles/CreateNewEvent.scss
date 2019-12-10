@@ -24,20 +24,23 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   margin-top: 20px;
   padding: 40px;
   border: 2px solid $primaryBackgroundColor;
   border-radius: 15px;
-
   background: $primaryColor;
   color: $primaryBackgroundColor;
   box-shadow: 5px 5px $primaryBackgroundColor;
+
+  @include forPhone {
+    padding: 20px;
+  }
 
   input {
     border: none;
     border-radius: 30px;
     padding: 10px;
+    color: white;
 
     background: $primaryBackgroundColor;
     transition: 0.2s all ease-in-out;
