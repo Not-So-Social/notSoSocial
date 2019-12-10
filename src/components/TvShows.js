@@ -153,7 +153,10 @@ class TvShows extends Component {
           time: show.schedule.time
         };
 
-        newTvShowObjectToDisplay.image = newTvShowObjectToDisplay.image.replace(/^http:\/\//i, "https://");
+        newTvShowObjectToDisplay.image = newTvShowObjectToDisplay.image.replace(
+          /^http:\/\//i,
+          "https://"
+        );
 
         // destructuring the newTvShowObjectToDisplay obj
         const { title, id, image } = newTvShowObjectToDisplay;
