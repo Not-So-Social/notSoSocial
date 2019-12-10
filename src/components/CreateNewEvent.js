@@ -39,7 +39,6 @@ export default class CreateNewEvent extends Component {
         type: ""
       });
     } else {
-      console.error("user inputs empty", this.state);
       // else show error message
       Swal.fire("Oops...", "Please fill all inputs!", "error");
     }
