@@ -12,6 +12,15 @@
     background: linear-gradient(50deg, $primaryColor 20%, $secondaryColor);
     box-shadow: $primaryBackgroundColor 0 0 5px;
 
+    @include forTablet {
+        padding: 20px 0;
+    }
+
+    @include forPhone {
+        flex-direction: column;
+        align-items: center;
+    }
+
     // this describes each tv show list item displayed in 
     //  .listOfEvents.
     .singleEvent {
@@ -29,6 +38,10 @@
 
         @include forTablet {
             width: 40%;
+        }
+
+        @include forPhone {
+            width: 80%
         }
 
         // all of each .singleEvent <li> is covered by a button,
