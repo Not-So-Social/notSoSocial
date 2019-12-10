@@ -16,8 +16,10 @@ class App extends Component {
   render() {
     return (
       <Router basename="/notSoSocial">
+        <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/tv/:id" component={SingleTvShowInfo} />
+        </Switch>
       </Router>
     );
   }
