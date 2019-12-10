@@ -29,7 +29,7 @@ export default class DisplayResultDashboard extends Component {
         this.setState({
           socialEventImage: data.data.data[0].images.original.url
         });
-        // once the state is set scroll to this component ref, section with the class of DisplayResultDashboard
+        // once the state is set scroll to this component ref, section with the class of displayResultRef
         window.scrollTo({
           top: this.displayResultRef.offsetTop,
           left: 0,
@@ -47,7 +47,7 @@ export default class DisplayResultDashboard extends Component {
   }
 
   componentDidUpdate(prevState) {
-    // if the previous state doesn't equal to the current state, it means the user has selected a new event,
+    // if the previous state doesn't equal to the current state, it means the user has selected a new event, rerun axios call
     if (prevState !== this.state) {
       const { name } = this.props.eventClicked;
       axios({
@@ -90,6 +90,7 @@ export default class DisplayResultDashboard extends Component {
     return (
       <section
         className="DisplayResultDashboard"
+        // ref for the scroll down to here
         ref={ref => (this.displayResultRef = ref)}
       >
         <div className="wrapper">
@@ -105,6 +106,7 @@ export default class DisplayResultDashboard extends Component {
               <p>Type: {type}</p>
               <p>Party Size: {partySize}</p>
             </div>
+            {/* end of eventResult */}
             <div className="tvShowResults">
               <h2>What you are doing instead</h2>
               <h2>{title}</h2>
@@ -116,8 +118,11 @@ export default class DisplayResultDashboard extends Component {
               <p>Network Name: {network}</p>
               <p>Time: {time}</p>
             </div>
+            {/* end of tvShowResults*/}
           </div>
+          {/* end of half divider */}
         </div>
+        {/* end of wrapper */}
       </section>
     );
   }
