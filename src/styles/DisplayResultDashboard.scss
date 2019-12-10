@@ -37,7 +37,9 @@ section.DisplayResultDashboard {
 
     width: 50%;
     padding: 50px;
-    border-radius: 10px;
+    border-radius: 40px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
     
     background: $primaryColor;
     box-shadow: $secondaryColor 10px 10px;

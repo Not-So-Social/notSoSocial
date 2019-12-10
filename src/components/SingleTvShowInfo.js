@@ -8,10 +8,11 @@ class SingleTvShowInfo extends Component {
         super();
         this.state = {
             tvShow: [],
-            image: "",
+            imageUrl: "",
             network: "",
             time: "",
-            summary: ""
+            summary: "",
+            image: ""
         }
     }
 
@@ -27,13 +28,18 @@ class SingleTvShowInfo extends Component {
 
                 this.setState({
                     tvShow: response.data,
-                    image: response.data.image.original,
+                    imageUrl: response.data.image.original,
                     network: response.data.network.name,
                     time: response.data.schedule.time,
                     summary: response.data.summary,
                     genre: response.data.genres.join(", "),
-                    imdb: `https://www.imdb.com/title/${response.data.externals.imdb}`
+                    imdb: `https://www.imdb.com/title/${response.data.externals.imdb}`,
                 })
+
+                this.setState({
+                    image: this.state.imageUrl.replace(/^http:\/\//i, 'https://')
+                })
+
         }).catch(() => {
             Swal.fire({
                 title: 'Error!',
