@@ -32,6 +32,10 @@ form {
   color: $primaryBackgroundColor;
   box-shadow: 5px 5px $primaryBackgroundColor;
 
+  @include forPhone {
+    padding: 20px;
+  }
+
   input {
     border: none;
     border-radius: 30px;

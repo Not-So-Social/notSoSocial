@@ -77,7 +77,7 @@ export default class CreateNewEvent extends Component {
             value={this.state.partySize}
           />
           {/* Event type */}
-          <label htmlFor="type">please enter type of event</label>
+          <label htmlFor="type">Please enter type of event</label>
           <input
             type="text"
             onChange={this.handelOnChange}
