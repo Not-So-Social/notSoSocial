@@ -93,11 +93,16 @@ export default class DisplayResultDashboard extends Component {
   render() {
     // destructuring both props from app.js
     const { name, type, partySize } = this.props.eventClicked;
-    const {
+    let {
       title,
       image,
       id,
     } = this.props.tvShowClicked;
+
+    this.props.tvShowClicked.image = this.props.tvShowClicked.image.replace(
+      /^http:\/\//i,
+      "https://"
+    );
 
     return (
       <section
