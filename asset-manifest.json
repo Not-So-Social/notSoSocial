@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/notSoSocial/static/css/main.52982b00.chunk.css",
-    "main.js": "/notSoSocial/static/js/main.c660560f.chunk.js",
-    "main.js.map": "/notSoSocial/static/js/main.c660560f.chunk.js.map",
+    "main.js": "/notSoSocial/static/js/main.d2fc831b.chunk.js",
+    "main.js.map": "/notSoSocial/static/js/main.d2fc831b.chunk.js.map",
     "runtime-main.js": "/notSoSocial/static/js/runtime-main.f771d3c2.js",
     "runtime-main.js.map": "/notSoSocial/static/js/runtime-main.f771d3c2.js.map",
     "static/js/2.e7e8790d.chunk.js": "/notSoSocial/static/js/2.e7e8790d.chunk.js",
     "static/js/2.e7e8790d.chunk.js.map": "/notSoSocial/static/js/2.e7e8790d.chunk.js.map",
     "index.html": "/notSoSocial/index.html",
-    "precache-manifest.fd13b31d27d59f998fe14ad38c4be196.js": "/notSoSocial/precache-manifest.fd13b31d27d59f998fe14ad38c4be196.js",
+    "precache-manifest.0ced15d393be164404996248ccf4935f.js": "/notSoSocial/precache-manifest.0ced15d393be164404996248ccf4935f.js",
     "service-worker.js": "/notSoSocial/service-worker.js",
     "static/css/main.52982b00.chunk.css.map": "/notSoSocial/static/css/main.52982b00.chunk.css.map",
     "static/media/style.scss": "/notSoSocial/static/media/tvShowCollageMinified.4fc9de44.png"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f771d3c2.js",
     "static/js/2.e7e8790d.chunk.js",
     "static/css/main.52982b00.chunk.css",
-    "static/js/main.c660560f.chunk.js"
+    "static/js/main.d2fc831b.chunk.js"
   ]
 }
