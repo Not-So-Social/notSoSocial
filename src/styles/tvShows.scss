@@ -16,7 +16,8 @@
 }   
 
 // describes each <li> containing tv show data.
-.tvShowListItem {
+.tvShowListItem,
+.randomShow {
     border-radius: 10px;
     
     background: $primaryColor;
@@ -62,10 +63,13 @@
 }
 
 .tvShowListItem:hover, 
-.tvShowListItem:focus {
+.tvShowListItem:focus,
+.randomShow:hover, 
+.randomShow:focus {
     box-shadow: orangered 13px 13px; 
 }
 
-.tvShowListItem:active {
+.tvShowListItem:active,
+.randomShow:active {
     box-shadow: orangered 13px -13px;
 }
