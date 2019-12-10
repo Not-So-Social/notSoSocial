@@ -55,7 +55,7 @@ class TvShows extends Component {
     });
     // once the state is set scroll to this component ref, section with the class of DisplayResultDashboard
     window.scrollTo({
-      top: this.tvShowWrapperRef.offsetTop,
+      top: this.scrollRef.offsetTop,
       left: 0,
       behavior: "smooth"
     });
@@ -188,19 +188,20 @@ class TvShows extends Component {
           {/* start of genres selection */}
 
           {/* gets all events json object from firebase and render the page with those events in an ul element as a button, has a callback function that retrieves the event obj user selected via onClick, and sets the state with that event obj */}
-
-          <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} />
+          
+          <FirebaseDatabase retrieveEventClicked={this.retrieveEventClicked} ref={ref => (this.scrollRef = ref)} />
+          
 
           {/* a form consist of inputs that allows user to create new events and display onto the page, also sends the information to firebase database */}
           <CreateNewEvent />
 
-          <SelectGenre filteredShow={this.filteredShow} />
+          <SelectGenre filteredShow={this.filteredShow} ref={ref => (this.SelectGenreRef = ref)} />
           {/* end of dropdown days */}
           {/* start of displaySection filtered shows by day */}
-          {this.state.showsArray ? (
+          {this.state.showsArray && (
             <div
               className="tvShowWrapper displaySection"
-              ref={ref => (this.tvShowWrapperRef = ref)}
+              ref={ref => (this.scrollRef = ref)}
             >
               <div className="displayInner">
                 <ul className="displayAllFilteredTvShows">
@@ -208,9 +209,9 @@ class TvShows extends Component {
                 </ul>
               </div>
             </div>
-          ) : null}
+          )}
           {/* start of displaySection filtered shows by genre */}
-          {this.state.genreArray ? (
+          {this.state.genreArray && (
             <div className="tvShowWrapper displaySection">
               <div className="displayInner">
                 <ul className="displayAllFilteredTvShows">
@@ -220,14 +221,14 @@ class TvShows extends Component {
                 </ul>
               </div>
             </div>
-          ) : null}
+          )}
           {/* get random tv show button that shows up if genreArray isn't null */}
-          {this.state.genreArray ? (
+          {this.state.genreArray && (
             <GetRandomTvShow
               retrieveTvShowClicked={this.retrieveTvShowClicked}
               filteredTvShows={this.state.showsFilteredByGenre}
             />
-          ) : null}
+          )}
         </section>
 
         {/* once the state is set with both the user selected event and tv show, render the results at the end of the page */}
