@@ -55,7 +55,7 @@ class TvShows extends Component {
     });
     // once the state is set scroll to this component ref, section with the class of DisplayResultDashboard
     window.scrollTo({
-      top: this.displayAllFilteredTvShowsRef.offsetTop,
+      top: this.tvShowWrapperRef.offsetTop,
       left: 0,
       behavior: "smooth"
     });
@@ -198,12 +198,12 @@ class TvShows extends Component {
           {/* end of dropdown days */}
           {/* start of displaySection filtered shows by day */}
           {this.state.showsArray ? (
-            <div className="tvShowWrapper displaySection">
+            <div
+              className="tvShowWrapper displaySection"
+              ref={ref => (this.tvShowWrapperRef = ref)}
+            >
               <div className="displayInner">
-                <ul
-                  className="displayAllFilteredTvShows"
-                  ref={ref => (this.displayAllFilteredTvShowsRef = ref)}
-                >
+                <ul className="displayAllFilteredTvShows">
                   {this.renderAllFilteredTvShows(this.state.showsFilteredByDay)}
                 </ul>
               </div>
