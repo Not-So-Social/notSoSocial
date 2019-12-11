@@ -8,6 +8,7 @@ import CreateNewEvent from "./CreateNewEvent";
 import FirebaseDatabase from "./FirebaseDatabase";
 import DisplayResultDashboard from "./DisplayResultDashboard";
 import GetRandomTvShow from "./GetRandomTvShow";
+import Instructions from "./Instructions";
 
 class TvShows extends Component {
   constructor() {
@@ -183,6 +184,7 @@ class TvShows extends Component {
   render() {
     return (
       <div>
+        <Instructions />
         <section className="selectSection">
           <SelectDay getDay={this.getDay} />
           {/* start of genres selection */}
