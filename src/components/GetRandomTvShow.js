@@ -28,6 +28,10 @@ export default class GetRandomTvShow extends Component {
       id: show.id,
       image: show.image.original
     };
+
+    newRandomTvShowObjectToDisplay.image = newRandomTvShowObjectToDisplay.image.replace(
+      /^http:\/\//i,
+      "https://")
     // destructuring for use
     const { title, id, image } = newRandomTvShowObjectToDisplay;
 

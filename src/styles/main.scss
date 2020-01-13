@@ -114,3 +114,26 @@ select:focus {
     text-shadow: 0 0 5px $primaryColor, 0 0 10px $secondaryColor, 0 0 15px $secondaryColor, 0 0 20px $secondaryColor, 0 0 10px $secondaryColor, 0 0 10px $secondaryColor, 0 0 5px $secondaryColor;
   }
 }
+
+details {
+    margin: 20px 15%;
+    transition: 1s all ease-in;
+
+    &:open {
+        transition: 1s all ease-in;
+
+    }
+
+    summary {
+        text-align: center;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    ol, li {
+        margin: 0;
+        padding: 0;
+    }
+}
