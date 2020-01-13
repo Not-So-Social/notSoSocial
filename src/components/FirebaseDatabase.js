@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // firebase
-import Firebase from "../util/config";
+import Firebase from "../util/config.js";
 import "firebase/database";
 
 import axios from "axios";
