@@ -51,8 +51,11 @@ export default class FirebaseDatabase extends Component {
             const randomArrIndex = Math.floor(
               Math.random() * Math.floor(imageSrcArr.length - 1)
             );
-            eventObj.socialEventImage =
+
+            if (typeof(imageSrcArr[randomArrIndex]) !== 'undefined') {
+              eventObj.socialEventImage =
               imageSrcArr[randomArrIndex].images.original.url;
+            }
           });
 
           // push all events into the empty array in a loop
